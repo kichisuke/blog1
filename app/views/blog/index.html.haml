@@ -1,2 +1,18 @@
-= @posts.name
-= @posts.content
+.container
+  .header
+    = render partial: 'layouts/header'
+  .main_title
+    Latest Article
+  .content
+    .posts#post_setion
+      - @posts.each do |post|
+        = link_to 'blog/' + post.id.to_s, class:"post-card" do
+          .image
+            =image_tag post.media unless post.media.blank?
+          .title
+            %h2
+              =post.title
+          .body-trunc
+            %p
+              =post.content
+                

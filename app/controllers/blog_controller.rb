@@ -1,6 +1,6 @@
 class BlogController < ApplicationController
   def index
-    @posts = Post.find(4)
+    @posts = Post.all.order("created_at DESC")
   end
 
   def blog_post
@@ -12,9 +12,16 @@ class BlogController < ApplicationController
 
   def create
     #@posts = Post.create! params.require(:post.permit(:title, :content))
-    @posts = params.permit(:name, :content)
+    @image = Cloudinary::Uploader.upload(params[:media],:transformation=>[
+      {:width=>300, :height=>170, :crop=>"scale"}])
+    @posts = params.permit(:title, :content).merge(:media => @image['secure_url'])
     Post.create(@posts)
     redirect_to :blog_post
+  end
+
+   # findメソッドで、idにひもづくPOSTオブジェクトを取得する
+   def open
+    @posts = Post.find(params[:id])
   end
 
 end

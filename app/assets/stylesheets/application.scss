@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ */
+ @import "./actiontext.scss";
+ @import "./reset.scss";
+
+.header{
+  position: fixed;
+  width: 100%;
+  top: 40px;
+  height: 10px;
+  padding: 30px 0px 0px 0px;
+  box-shadow: 0px 13px 35px -11px  rgba(35,35,35,.15);
+  .header_main{
+    position:absolute;
+    top: -10px;
+    left: 400px;
+    width: 100%;
+  }
+  .header_menu{
+    position:absolute;
+    top: -10px;
+    left: 550px;
+    width: 500px;
+    .topics{
+      list-style: none;  
+      li{
+        display: inline-block;
+        margin-left: 40px;
+      }
+    }
+  }
+  .contact{
+    position: absolute;
+    top: -10px;
+    right: 350px;
+  }
+}
+
+.float-sns-box {
+  position: absolute;
+  top: 300px;
+  width: 45px;
+  height: 100px;
+  display: none;
+  border: #e0e0e0 1px solid;
+  z-index: 2;
+  background-color: white;
+  position: fixed;
+}
+
+.twitter {
+  color:skyblue;
+}
+
+.insta{
+  margin-left: 2px;
+  color:pink;
+}

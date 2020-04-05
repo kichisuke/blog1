@@ -23,5 +23,5 @@ class BlogController < ApplicationController
    def open
     @posts = Post.find(params[:id])
   end
-
+  
 end

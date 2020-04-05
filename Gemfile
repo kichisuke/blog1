@@ -66,3 +66,4 @@ group :development, :test do
 end
 
 gem "font-awesome-rails"
+gem "jquery-rails"

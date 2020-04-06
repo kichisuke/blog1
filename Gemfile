@@ -67,3 +67,6 @@ end
 
 gem "font-awesome-rails"
 gem "jquery-rails"
+gem 'jquery-turbolinks'
+gem 'mechanize'
+gem 'flag_icon_css_rails'

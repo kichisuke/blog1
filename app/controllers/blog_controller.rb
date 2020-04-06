@@ -1,6 +1,7 @@
 class BlogController < ApplicationController
   def index
-    @posts = Post.all.order("created_at DESC")
+    @tmp = params[:content]
+    @posts = Post.all.order("created_at DESC").limit(3)
   end
 
   def blog_post

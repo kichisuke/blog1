@@ -5,16 +5,29 @@
 }
 
 .main_title{
+  font-family: 'Raleway',sans-serif;
+  font-size: 30px;
+  color: #8bf0ba;
   position: absolute;
   margin: -40px 600px 0px 600px;
+  padding: 0 30px 0 30px;
+  background-color: white;
+  z-index: 5;
 }
 
-.title {
-  text-align: center;
+hr {
+  position: absolute;
+  width: 1040px;
+  top: -30px;
+  border: none;
+  border-top: 1px solid green;
+  margin-left: 200px;
 }
 
 .posts {
   margin-top: 150px;
+  padding-right: 160px;
+  padding-left: 160px;
   display: flex;
   flex-direction: row;  
   justify-content: space-around;
@@ -22,23 +35,43 @@
 }
 
 .post-card {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   min-width: 300px;
   max-width: 300px;
-  height: 400px;
-  box-shadow: 1px 1px rgb(68, 68, 68);
-  border: 1px solid rgb(68, 68, 68);
+  height: 200px;
+  border: 1px solid green;
   border-radius: 5px;
   margin: 20px 0px;
 }
 
 .image {
   width: 100%;
-  height: 170px;
+  height: 200px;
+}
+
+.title{
+  color:#4ABDAC;
+  font-size: 20px;
+  margin-top: 40px;
+  font-family: 'gilbert-color-bold-preview5';
+}
+
+.title:hover{
+  text-decoration: underline;
+}
+
+.date{
+  color:black;
+  margin-top: 15px;
 }
 
 .body-trunc {
-  margin-left: 10px;
+  color:black;
+  margin-top: 15px;
   margin-right: 10px;
+  p{
+    text-decoration: none;
+  }
 }

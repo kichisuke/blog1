@@ -2,7 +2,8 @@
   .header
     = render partial: 'layouts/header'
   .main_title
-    Latest Article
+    Latest Blog
+  %hr/ 
   .content
     .posts#post_setion
       - @posts.each do |post|
@@ -12,11 +13,12 @@
           .title
             %h2
               =post.title
+          .date
+            %h3
+              =post.updated_at
           .body-trunc
             %p
-              =post.content
-              //ここでdivの決められた文字数を表示する
-
-:javascript
-  $("#hoge").css("color","red")
-  
+              -exPost = post.content.to_plain_text.index("[")
+              -if exPost==nil
+                -exPost = post.content.to_plain_text.length
+              =post.content.to_plain_text.slice(0,exPost) + "..."

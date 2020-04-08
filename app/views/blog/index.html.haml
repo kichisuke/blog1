@@ -1,15 +1,24 @@
 .container
   .header
     = render partial: 'layouts/header'
+  .top_title
+    We can share anything about Japan
+  .sub_title
+    Realtime Post
+  %hr.line1  
+  .main_image
+    =image_tag @main_img.media ,size: "370x200",class: "main_image_img"  unless @main_img.media.blank?
+    =image_tag @main_img.media ,size: "370x200",class: "main_image_img"  unless @main_img.media.blank?
+    =image_tag @main_img.media ,size: "370x200",class: "main_image_img"  unless @main_img.media.blank?
   .main_title
     Latest Blog
-  %hr/ 
-  .content
+  %hr.line2
+  .index_content
     .posts#post_setion
       - @posts.each do |post|
         = link_to 'blog/' + post.id.to_s, class:"post-card" do
           .image
-            =image_tag post.media unless post.media.blank?
+            =image_tag post.media ,size: "300x200" unless post.media.blank? 
           .title
             %h2
               =post.title

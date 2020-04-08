@@ -1,14 +1,22 @@
 .header_main
-  .float-sns-box
-    = link_to "#" do
-      =fa_icon 'flag-icon flag-icon-jp'
-  AnyTopicsJapan
+  %a{href: "/"}
+    AnyTopicsJapan
 .header_menu
   %ul.topics
     %li.news
       = link_to 'Blog', 'blog'
-    %li.ciry
-      City
+    %li.post
+      = link_to 'Post', 'post_image'   
+    %li.city
+      %a
+        City
+        %ul.topics_second
+          %li
+            %a{href: "#"}
+              Osaka
+          %li
+            %a
+              Tokyo     
     %li.shopping
       //Shopping
     %li.japanese

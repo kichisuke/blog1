@@ -27,18 +27,20 @@
   box-shadow: 0px 13px 35px -11px  rgba(35,35,35,.15);
   .header_main{
     font-size: 35px;
-    font-family: times, Times New Roman, times-roman, georgia, serif;
     color: #444;
     position:absolute;
     top: 15px;
     left: 280px;
     width: 100%;
+    a{
+      color: black;
+    }
   }
+
   .header_menu{
-    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
-    font-size: 28px;
+    font-size: 20px;
     position:absolute;
-    top: 30px;
+    top: 25px;
     left: 550px;
     width: 500px;
     .topics{
@@ -46,17 +48,52 @@
       li{
         display: inline-block;
         margin-left: 40px;
+        a{
+          color: black;
+        }
       }
     }
   }
-  .contact{
-    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
-    font-size: 28px;
+
+.contact{
+    font-family: sans-serif;
+    font-size: 20px;
     position: absolute;
     top: 30px;
-    right: 250px;
+    right: 260px;
   }
 }
+
+.header_menu .topics li a:hover{
+  color:blue;
+}
+
+.topics > li.city {
+  position: relative;
+}
+
+li.city ul.topics_second {
+  position: absolute;
+  visibility: hidden;
+  background-color: white;
+  top: 23px;
+  left: 0px;
+  width: 180px;
+  li{
+    padding-top: 15px;
+    font-size: 15px;
+  }
+  a{
+   display: block;
+   width: 100px;
+  }
+}
+
+li.city:hover ul.topics_second {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 .float-sns-box {
   position: absolute;

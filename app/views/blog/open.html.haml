@@ -2,7 +2,11 @@
   .header
     = render partial: 'layouts/header'
   .content
+    .content_image
+      =image_tag @posts.media,size: "600x300" unless @posts.media.blank?
     .content_title
       =@posts.title
+    .content_date
+      =@posts.updated_zat
     .content_body 
       =@posts.content

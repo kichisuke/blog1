@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'blog#index'
   get 'blog_post', to: 'blog#blog_post'
   post 'blog_post', to: 'blog#create'
+  get 'post_image', to: 'blog#post_image'
+  post 'post_image', to: 'blog#post_create'
 
   #これを上にもってこないと、blog/:idを先にみて、
   #indexというidでpostアクションへルーティングしてしまう。

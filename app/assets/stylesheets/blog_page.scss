@@ -1,0 +1,24 @@
+.blog_content{
+  .blog{
+    margin-top: 150px;
+    .blog_post{
+      border: 1px solid gray;
+      background: white;
+      padding: 10px;
+      text-align: left;
+      width: 60%;
+      margin: 30px 0 0px 100px;
+      font-size: 17px;
+    }
+  .title{
+    margin: 30px 0 0 0;
+    font-size: 40px;
+  }
+  .body-trunc{
+    margin: 50px 0 0 0;
+  }
+  .genre{
+    margin: 50px 0 0 0;
+  }
+}
+}

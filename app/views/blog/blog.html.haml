@@ -1,22 +1,26 @@
 .container
   .header
     = render partial: 'layouts/header'
-  .index_content
-    .posts#post_setion
+  .blog_content
+    .blog#blog_setion
       - @blogs.each do |blog|
-        = link_to 'blog/' + blog.id.to_s, class:"post-card" do
-          .image
-            =image_tag blog.media ,size: "300x200" unless blog.media.blank? 
+        .blog_post
+          .date
+            %h1
+              =blog.updated_at.strftime("%B %d, %Y")
           .title
             %h2
               =blog.title
-          .date
-            %h3
-              =blog.updated_at.strftime("%B %d, %Y")
           .body-trunc
             %p
               -exPost = blog.content.to_plain_text.index("[")
               -if exPost==nil
                 -exPost = blog.content.to_plain_text.length
-              =blog.content.to_plain_text.slice(0,exPost) + "..."
-                  
+              =blog.content.to_plain_text.slice(0,exPost)
+            %p  
+              Read more
+          .genre
+            = fa_icon "folder"
+            =blog.genre
+  .footer
+    = render partial: 'layouts/footer'                  

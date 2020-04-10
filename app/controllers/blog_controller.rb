@@ -8,6 +8,7 @@ class BlogController < ApplicationController
 
   def blog
     @blogs = Blog.all.order("created_at DESC")
+    
   end
 
   def blog_post

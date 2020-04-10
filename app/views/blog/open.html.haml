@@ -7,6 +7,6 @@
     .content_title
       =@blogs.title
     .content_date
-      =@blogs.updated_at
+      =@blogs.updated_at.strftime("%B %d, %Y")
     .content_body 
       =@blogs.content

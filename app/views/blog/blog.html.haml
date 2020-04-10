@@ -1,22 +1,6 @@
 .container
   .header
     = render partial: 'layouts/header'
-  .top_title
-    We can share anything about Japan
-  .sub_title
-    Realtime Post
-  %hr.line1  
-  .main_image
-    - @posts.each do |post|
-      = link_to '#' + post.id.to_s, class:"post-image" do
-        .image
-          =image_tag post.image ,size: "370x200" unless post.image.blank?
-        .title
-          %h1
-            =post.title   
-  .main_title
-    Latest Blog
-  %hr.line2
   .index_content
     .posts#post_setion
       - @blogs.each do |blog|
@@ -35,5 +19,4 @@
               -if exPost==nil
                 -exPost = blog.content.to_plain_text.length
               =blog.content.to_plain_text.slice(0,exPost) + "..."
-  .footer
-    = render partial: 'layouts/footer'
+                  

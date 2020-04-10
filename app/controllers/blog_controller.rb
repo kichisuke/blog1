@@ -6,6 +6,10 @@ class BlogController < ApplicationController
     @posts = Post.all.order("created_at DESC").limit(3)
   end
 
+  def blog
+    @blogs = Blog.all.order("created_at DESC")
+  end
+
   def blog_post
   end
 

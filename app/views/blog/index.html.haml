@@ -10,10 +10,10 @@
     - @posts.each do |post|
       = link_to '#' + post.id.to_s, class:"post-image" do
         .image
-          =image_tag post.image ,size: "370x200" unless post.image.blank?
+          =image_tag post.image ,size: "350x200" unless post.image.blank?
         .title
           %h1
-            =post.title   
+            =post.title
   .main_title
     Latest Blog
   %hr.line2

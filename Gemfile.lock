@@ -58,10 +58,16 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (9.7.6)
+      execjs
     aws_cf_signer (0.1.3)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
+    bootstrap (4.4.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.1)
     capybara (3.32.1)
@@ -86,6 +92,7 @@ GEM
       html2haml
     erubi (1.9.0)
     erubis (2.7.0)
+    execjs (2.7.0)
     ffi (1.12.2)
     flag_icon_css_rails (0.1.3)
       railties (>= 3.1.0)
@@ -124,6 +131,21 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    kaminari (1.2.0)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.0)
+      kaminari-activerecord (= 1.2.0)
+      kaminari-core (= 1.2.0)
+    kaminari-actionview (1.2.0)
+      actionview
+      kaminari-core (= 1.2.0)
+    kaminari-activerecord (1.2.0)
+      activerecord
+      kaminari-core (= 1.2.0)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
+    kaminari-core (1.2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -163,7 +185,8 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     ntlm-http (0.1.1)
-    pry (0.13.0)
+    popper_js (1.16.0)
+    pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-byebug (3.9.0)
@@ -289,6 +312,7 @@ PLATFORMS
 DEPENDENCIES
   actiontext
   bootsnap (>= 1.4.2)
+  bootstrap
   byebug
   capybara (>= 2.15)
   cloudinary
@@ -300,6 +324,8 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   jquery-turbolinks
+  kaminari
+  kaminari-bootstrap
   listen (>= 3.0.5, < 3.2)
   mechanize
   mini_magick

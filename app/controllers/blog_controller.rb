@@ -7,7 +7,8 @@ class BlogController < ApplicationController
   end
 
   def blog
-    @blogs = Blog.all.order("created_at DESC")
+    @blogs = Blog.all.order("created_at DESC").page(params[:page]).per(10)
+    @category = Blog.where.not(genre: nil)
     
   end
 

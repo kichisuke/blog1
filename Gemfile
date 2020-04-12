@@ -70,3 +70,6 @@ gem "jquery-rails"
 gem 'jquery-turbolinks'
 gem 'mechanize'
 gem 'flag_icon_css_rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem 'bootstrap'

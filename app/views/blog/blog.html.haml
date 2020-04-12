@@ -1,6 +1,13 @@
 .container
   .header
     = render partial: 'layouts/header'
+  .category
+    .category_title
+      Category
+    - @category.each do |c|
+      .blog_category
+        = fa_icon "chevron-right"
+        = c.genre
   .blog_content
     .blog#blog_setion
       - @blogs.each do |blog|
@@ -10,17 +17,21 @@
               =blog.updated_at.strftime("%B %d, %Y")
           .title
             %h2
-              =blog.title
+              %a{href: 'blog/' + blog.id.to_s}
+                =blog.title
           .body-trunc
             %p
               -exPost = blog.content.to_plain_text.index("[")
               -if exPost==nil
                 -exPost = blog.content.to_plain_text.length
               =blog.content.to_plain_text.slice(0,exPost)
-            %p  
-              Read more
+            %p.more
+              %a{href: 'blog/' + blog.id.to_s}
+                Read more
           .genre
             = fa_icon "folder"
             =blog.genre
+  .page
+    = paginate @blogs           
   .footer
     = render partial: 'layouts/footer'                  

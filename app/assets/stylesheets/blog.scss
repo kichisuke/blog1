@@ -18,7 +18,7 @@
   font-family: 'Open Sans Condensed', sans-serif;
   width:200px;
   font-size: 30px;
-  color: #8bf0ba;
+  color: #4ABDAC;
   position: absolute;
   margin: 40px 600px 0px 600px;
   padding: 0 10px 0 10px;
@@ -73,7 +73,7 @@
 .main_title{
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 30px;
-  color: #8bf0ba;
+  color: #4ABDAC;
   position: absolute;
   margin: 80px 600px 0px 600px;
   padding: 0 30px 0 30px;
@@ -138,5 +138,8 @@
   margin-right: 10px;
   p{
     text-decoration: none;
+  }
+  .more{
+    margin-top: 30px;
   }
 }

@@ -1,12 +1,20 @@
 .wrapper
   .header
     = render partial: 'layouts/header'
+  .post_title
+    Post Any Images about Japan!
+    .br
+      %p
+      ↓  
   .content
     = form_with model: @posts do |form|
       .field
         = form.label :title
-        = form.text_area :title
+        .br
+        = form.text_field :title
+        .br
         = form.label :image
         = form.file_field :image
+        .br
         = form.submit "Create"
     

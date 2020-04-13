@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get 'blog/index'
   # 投稿ページ表示(追加)
   get 'blog/:id', to: 'blog#open'
+
+  get 'category/:genre', to: 'blog#genre_open'
   
 end

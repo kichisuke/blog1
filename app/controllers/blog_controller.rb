@@ -9,7 +9,6 @@ class BlogController < ApplicationController
   def blog
     @blogs = Blog.all.order("created_at DESC").page(params[:page]).per(10)
     @category = Blog.where.not(genre: nil)
-    
   end
 
   def blog_post
@@ -38,6 +37,11 @@ class BlogController < ApplicationController
    # findメソッドで、idにひもづくPOSTオブジェクトを取得する
   def open
     @blogs = Blog.find(params[:id])
+  end
+
+  def genre_open
+    @blogs = Blog.where(genre: params[:genre]).page(params[:page]).per(10)
+    @category = Blog.where.not(genre: nil)
   end
 
   private

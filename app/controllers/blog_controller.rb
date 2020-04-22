@@ -15,6 +15,7 @@ class BlogController < ApplicationController
   end
 
   def post_image
+    @image = Post.all.order("created_at DESC").limit(6)
   end
 
   def post_create

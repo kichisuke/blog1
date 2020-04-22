@@ -1,20 +1,29 @@
 .wrapper
   .header
     = render partial: 'layouts/header'
-  .post_title
-    Post Any Images about Japan!
-    .br
-      %p
-      ↓  
   .content
-    = form_with model: @posts do |form|
-      .field
-        = form.label :title
-        .br
-        = form.text_field :title
-        .br
-        = form.label :image
-        = form.file_field :image
-        .br
-        = form.submit "Create"
-    
+    .post_area
+      .post_title
+        %p
+          Post Any Images about Japan!
+        %p
+          ↓  
+      .form_area
+        = form_with model: @posts do |form|
+          .field
+            = form.label :comment
+            .br
+            = form.text_field :title
+            .br
+            = form.label :image
+            = form.file_field :image
+            .br
+            = form.submit "Create"
+    .image_area1
+      - @image.each do |i|
+        =image_tag i.image ,size: "350x200" unless i.image.blank?
+      .image_area1_comment  
+        - @image.each do |i|
+          .image_area1_comment_title
+          %span#title
+            =i.title

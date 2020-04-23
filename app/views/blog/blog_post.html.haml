@@ -1,13 +1,11 @@
-ログインしたときのみにする。
-微調整
-デプロイ
 = form_with model: @blogs do |form|
-  .field
-    = form.label :title
-    = form.text_area :title
-    = form.label :image
+  .blog_field
+    .title_form
+      = form.label :title
+      .br
+      = form.text_area :title
+    .br
     = form.file_field :media
-    = form.label :content
+    .br
     = form.rich_text_area :content
     = form.submit "Create"
-    

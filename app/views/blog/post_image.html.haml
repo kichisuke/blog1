@@ -16,14 +16,17 @@
             = form.text_field :title
             .br
             = form.label :image
+            .br
             = form.file_field :image
             .br
-            = form.submit "Create"
-    .image_area1
+            = form.submit "Post"
+    .image_area
       - @image.each do |i|
         =image_tag i.image ,size: "350x200" unless i.image.blank?
-      .image_area1_comment  
+      .image_area_comment  
         - @image.each do |i|
-          .image_area1_comment_title
-          %span#title
-            =i.title
+          .image_area_comment_title
+            %span#title
+              =i.title
+  .footer
+    = render partial: 'layouts/footer'

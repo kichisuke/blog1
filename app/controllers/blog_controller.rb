@@ -1,17 +1,21 @@
 class BlogController < ApplicationController
   def index
     # @tmp = params[:content]
-    @blogs = Blog.all.order("created_at DESC").limit(3)
-    @main_img = Blog.find(10)
+    @blogs = Blog.where(draft: 0).order("created_at DESC").limit(3)
+    @main_img = Blog.find(10) 
     @posts = Post.all.order("created_at DESC").limit(3)
   end
 
   def blog
-    @blogs = Blog.all.order("created_at DESC").page(params[:page]).per(10)
+    @blogs = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(10)
     @category = Blog.where.not(genre: nil)
   end
 
   def blog_post
+  end
+
+  def draft
+    @blogs = Blog.find(params[:id])
   end
 
   def post_image
@@ -31,9 +35,12 @@ class BlogController < ApplicationController
       {:width=>600, :height=>300, :crop=>"scale"}])
     # @blogs = params.permit(:title, :content).merge(:media => @image['secure_url'])
     #Blog.create(@blogs)
-    Blog.create(create_params)
-    redirect_to :blog_post
-  end
+    newData = Blog.create(create_params)
+    id = newData.id
+    #redirect_to params[:draft]
+    name = '/blog/' + id.to_s + '/draft'
+    redirect_to name
+    end
 
    # findメソッドで、idにひもづくPOSTオブジェクトを取得する
   def open
@@ -47,7 +54,7 @@ class BlogController < ApplicationController
 
   private
   def create_params
-    params.permit(:title, :content).merge(:media => @image['secure_url'])
+    params.permit(:title, :content).merge(:media => @image['secure_url'], draft: "1")
   end
 
   def post_create_params

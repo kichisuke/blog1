@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'blog/:id', to: 'blog#open'
 
   get 'category/:genre', to: 'blog#genre_open'
+  get 'blog/:id/draft', to: 'blog#draft'
   
 end

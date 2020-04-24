@@ -1,0 +1,15 @@
+= form_with model: @blogs do |form|
+  .blog_field
+    .id_area
+      -@url = request.url
+      -@id = params[:id].to_s
+    .title_form
+      = form.hidden_field :id, value: -@id
+      = form.label :title
+      .br
+      = form.text_area :title
+    .br
+    = form.file_field :media
+    .br
+    = form.rich_text_area :content
+    = form.submit "Modify draft"

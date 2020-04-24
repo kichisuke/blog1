@@ -10,5 +10,7 @@
       =@blogs.updated_at.strftime("%B %d, %Y")
     .content_body 
       =@blogs.content
-修正する
-投稿する
+  .option
+    %a{href:'draft/edit'}
+      修正する
+      投稿する

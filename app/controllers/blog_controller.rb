@@ -23,14 +23,19 @@ class BlogController < ApplicationController
   end  
 
   def post_image
-    @image = Post.all.order("created_at DESC").limit(10)
+    @post = Post.new
+    @image = Post.all.order("created_at DESC").limit(12)
   end
 
   def post_create
     @image = Cloudinary::Uploader.upload(params[:image],:transformation=>[
       {:width=>370, :height=>200, :crop=>"scale"}])
-    Post.create(post_create_params)
-    redirect_to :post_image
+    @post = Post.create(post_create_params)
+    if @post.save
+      redirect_to :post_image
+    else
+      render "layouts/_new"
+    end  
   end
 
   def create

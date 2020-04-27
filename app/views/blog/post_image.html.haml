@@ -7,13 +7,14 @@
         %p
           Post Any Images about Japan!
         %p
-          ↓  
+          ↓ 
       .form_area
-        = form_with model: @posts do |form|
+        = form_with model: @post do |form|
           .field
-            = form.label :comment
+            = render 'layouts/new', model: @post
+            = form.label :"comment(under 10 characters)"
             .br
-            = form.text_field :title
+            = form.text_field :title, maxlength:10
             .br
             = form.label :image
             .br

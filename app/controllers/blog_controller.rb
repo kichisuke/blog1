@@ -1,8 +1,7 @@
 class BlogController < ApplicationController
   def index
-    # @tmp = params[:content]
     @blogs = Blog.where(draft: 0).order("created_at DESC").limit(3)
-    @main_img = Blog.find(10) 
+    #@main_img = Blog.find(10) 
     @posts = Post.all.order("created_at DESC").limit(3)
   end
 
@@ -39,28 +38,22 @@ class BlogController < ApplicationController
   end
 
   def create
-    #@posts = Post.create! params.require(:post.permit(:title, :content))
-    binding.pry
     @image = Cloudinary::Uploader.upload(params[:media],:transformation=>[
       {:width=>600, :height=>300, :crop=>"scale"}])
-    # @blogs = params.permit(:title, :content).merge(:media => @image['secure_url'])
-    #Blog.create(@blogs)
     newData = Blog.create(create_params)
     id = newData.id
-    #redirect_to params[:draft]
     name = '/blog/' + id.to_s + '/draft'
     redirect_to name
   end
 
   def update
     @image = Cloudinary::Uploader.upload(params[:blog][:media],:transformation=>[
-      {:width=>600, :height=>300, :crop=>"scale"}])
+      {:width=>600, :height=>300, :crop=>"scale"}]) unless params[:blog][:media].blank?
     newData = Blog.find(params[:blog][:id]).update(update_create_params)
     name = '/blog/' + params[:blog][:id] + '/draft'
     redirect_to name
   end
 
-   # findメソッドで、idにひもづくPOSTオブジェクトを取得する
   def open
     @blogs = Blog.find(params[:id])
   end
@@ -78,7 +71,7 @@ class BlogController < ApplicationController
   def update_create_params
     params[:title] = params[:blog][:title]
     params[:content] = params[:blog][:content]
-    params.permit(:title, :content).merge(:media => @image['secure_url'], draft: "1")
+    @image.blank? ? params.permit(:title, :content).merge(draft: "1") : params.permit(:title, :content).merge(:media => @image['secure_url'], draft: "1")
   end
 
   def post_create_params

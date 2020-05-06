@@ -10,7 +10,6 @@
       =@blogs.updated_at.strftime("%B %d, %Y")
     .content_body 
       =@blogs.content
-  .option
-    %a{href:'draft/edit'}
-      修正する
-      投稿する
+  .post
+    = form_with url: 'draft/post',local:true do |form|
+      = form.submit "Post"

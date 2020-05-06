@@ -22,7 +22,7 @@ RSpec.describe BlogController, type: :controller do
       @blog = Blog.create(
         title: 'hoge'
         )
-     end 
+     end
 
     #needed for error msg if title is nil
     #it 'cannot be updated without title' do
@@ -45,4 +45,26 @@ RSpec.describe BlogController, type: :controller do
     end
 
   end
+
+  describe 'PATCH #blog_post' do
+    before do 
+      @blog = Blog.create(
+        title: 'hoge',
+        draft: 1
+        )
+     end
+
+     it 'changes boolean draft to false' do
+      patch :blog_post, params: {id: @blog.id}
+      expect(@blog.reload.draft).to be false
+     end
+
+     it 'redirects the page after updates' do
+      patch :blog_post, params: {id: @blog.id}
+      name = '/blog/' + @blog.id.to_s
+      expect(response).to redirect_to name
+     end
+
+  end
+
 end

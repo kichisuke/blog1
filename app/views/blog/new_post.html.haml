@@ -1,0 +1,17 @@
+.wrapper
+  .header
+    = render partial: 'layouts/header'
+  .blog_post_form_area 
+    = form_with model: @blogs do |form|
+      .blog_field
+        .title_form
+          = form.label :title
+          .br
+          = form.text_area :title
+        .br
+        = form.file_field :media
+        .br
+        = form.rich_text_area :content
+        = form.submit "Make draft"
+.footer
+  = render partial: 'layouts/footer'    

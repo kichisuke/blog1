@@ -10,6 +10,9 @@
         = fa_icon "chevron-right"
         = c.genre
   .blog_content
+    .new_post
+      %a{href: '/new_post'}
+        newpost
     .blog#blog_setion
       - @blogs.each do |blog|
         .blog_post
@@ -35,4 +38,4 @@
   .page
     = paginate @blogs           
   .footer
-    = render partial: 'layouts/footer'                  
+    = render partial: 'layouts/footer'

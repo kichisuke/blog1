@@ -1,12 +1,19 @@
-.blog_field{
-
-  .title_form{
-    margin: 30px 0 0 310px;
-    #title{
-      width: 800px;
-    } 
+.blog_post_form_area{
+  margin-top: 100px;
+  .blog_field{
+    .title_form{
+      margin: 30px 0 0 0px;
+      label{
+        margin-left: 310px;
+      }
+      #title{
+        margin-left: 310px;
+        width: 800px;
+      }
   }
-  #trix-toolbar-1{
+}
+
+  trix-toolbar{
     margin-left: 310px;
   }
   .trix-button-group.trix-button-group--history-tools{
@@ -29,8 +36,10 @@
   
   input[type="submit"]{
     border-radius: 4px;
-    width:800px;
+    width: 800px;
     margin: 30px 0 0 310px;
     box-sizing: border-box;
+    background-color: #3CBC8D;
+    color: white; 
   }
 }

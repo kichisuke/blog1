@@ -1,17 +1,23 @@
-= form_with model: @blogs do |form|
-  .blog_field
-    .id_area
-      -@url = request.url
-      -@id = params[:id].to_s
-    .title_form
-      = form.hidden_field :id, value: -@id
-      = form.label :title
-      .br
-      = form.text_area :title
-    .br
-    = image_tag @blogs.media
-    .br
-    = form.file_field :media
-    .br
-    = form.rich_text_area :content
-    = form.submit "Modify draft"
+.wrapper
+  .header
+    = render partial: 'layouts/header'
+  .blog_edit_form_area    
+    = form_with model: @blogs do |form|
+      .blog_field
+        .id_area
+          -@url = request.url
+          -@id = params[:id].to_s
+        .title_form#edit_title
+          = form.hidden_field :id, value: -@id
+          = form.label :title
+          .br
+          = form.text_area :title
+        .br
+        = image_tag @blogs.media
+        .br
+        = form.file_field :media
+        .br
+        = form.rich_text_area :content
+        = form.submit "Modify draft"
+  .footer
+    = render partial: 'layouts/footer'

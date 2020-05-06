@@ -1,6 +1,21 @@
 .blog_content{
+  .new_post{
+    width: 30px;
+    margin: 50px 0 0 100px;
+    a{
+      border: solid 1px #4ABDAC;
+      background-color: #4ABDAC;
+      border-radius:  20px 20px 20px 20px;
+      padding: 5px;
+      color:white;
+      font-size: 20px;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+  }
   .blog{
-    margin-top: 100px;
+    margin-top: 10px;
     .blog_post{
       border: 1px solid gray;
       background: white;

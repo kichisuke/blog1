@@ -1,4 +1,6 @@
 class BlogController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @blogs = Blog.where(draft: 0).order("created_at DESC").limit(3)
     #@main_img = Blog.find(10) 
@@ -11,6 +13,12 @@ class BlogController < ApplicationController
   end
 
   def blog_post
+    postData = Blog.find(params[:id]).update(post_param)
+    name = '/blog/' + params[:id].to_s
+    redirect_to name
+  end
+  
+  def new_post
   end
 
   def draft
@@ -76,6 +84,10 @@ class BlogController < ApplicationController
 
   def post_create_params
     params.permit(:title, :image).merge(:image => @image['secure_url'])
+  end
+
+  def post_param
+    params.permit(:id).merge(draft: "0")
   end
   
 end

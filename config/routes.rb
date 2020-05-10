@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  #devise_for :users
+  post '/posts', to: 'blog#post_create'
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
   resources :posts, only: [:new, :create, :index]
   root to: 'blog#index'
   get 'new_post', to: 'blog#new_post'
@@ -9,10 +16,7 @@ Rails.application.routes.draw do
   post 'post_image', to: 'blog#post_create'
   get 'blog', to: 'blog#blog'
 
-  #これを上にもってこないと、blog/:idを先にみて、
-  #indexというidでpostアクション  へルーティングしてしまう。
   get 'blog/index'
-  # 投稿ページ表示(追加)
   get 'blog/:id', to: 'blog#open'
   get 'category/:genre', to: 'blog#genre_open'
   get 'blog/:id/draft', to: 'blog#draft'

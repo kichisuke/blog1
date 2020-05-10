@@ -30,3 +30,23 @@
   color: blue;
   }
 }
+
+.draft_post{
+  margin: 50px 0 0 300px;
+  input{
+    width: 100px;
+    background-color: #4ABDAC;
+    color: white;
+    border-radius: 100px;
+  }
+}
+
+.draft_edit{
+  margin: -20px 0 0 450px;
+  input{
+    width: 100px;
+    background-color: #4ABDAC;
+    color: white;
+    border-radius: 100px;
+  }
+}

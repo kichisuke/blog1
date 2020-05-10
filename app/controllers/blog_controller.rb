@@ -3,7 +3,6 @@ class BlogController < ApplicationController
 
   def index
     @blogs = Blog.where(draft: 0).order("created_at DESC").limit(3)
-    #@main_img = Blog.find(10) 
     @posts = Post.all.order("created_at DESC").limit(3)
   end
 
@@ -30,12 +29,14 @@ class BlogController < ApplicationController
   end  
 
   def post_image
+    count = Post.where.not(image:nil).count
+    count <= 16 ? count = count : count = 16
     @post = Post.new
-    @image = Post.all.order("created_at DESC").limit(12)
+    @image = Post.all.order("created_at DESC").limit(count)
   end
 
   def post_create
-    @image = Cloudinary::Uploader.upload(params[:image],:transformation=>[
+    @image = Cloudinary::Uploader.upload(params[:post][:image],:transformation=>[
       {:width=>370, :height=>200, :crop=>"scale"}])
     @post = Post.create(post_create_params)
     if @post.save
@@ -47,7 +48,7 @@ class BlogController < ApplicationController
 
   def create
     @image = Cloudinary::Uploader.upload(params[:media],:transformation=>[
-      {:width=>600, :height=>300, :crop=>"scale"}])
+      {:width=>600, :height=>300, :crop=>"scale"}]) if !params[:media].nil?
     newData = Blog.create(create_params)
     id = newData.id
     name = '/blog/' + id.to_s + '/draft'
@@ -55,9 +56,10 @@ class BlogController < ApplicationController
   end
 
   def update
+    @blog = Blog.find(params[:blog][:id])
     @image = Cloudinary::Uploader.upload(params[:blog][:media],:transformation=>[
       {:width=>600, :height=>300, :crop=>"scale"}]) unless params[:blog][:media].blank?
-    newData = Blog.find(params[:blog][:id]).update(update_create_params)
+    newData = @blog.update(update_create_params)
     name = '/blog/' + params[:blog][:id] + '/draft'
     redirect_to name
   end
@@ -73,7 +75,7 @@ class BlogController < ApplicationController
 
   private
   def create_params
-    params.permit(:title, :content).merge(:media => @image['secure_url'], draft: "1")
+    @image.blank? ? params.permit(:title, :content).merge(draft: "1") : params.permit(:title, :content).merge(:media => @image['secure_url'], draft: "1") 
   end
 
   def update_create_params
@@ -83,6 +85,7 @@ class BlogController < ApplicationController
   end
 
   def post_create_params
+    params[:title] = params[:post][:title]
     params.permit(:title, :image).merge(:image => @image['secure_url'])
   end
 

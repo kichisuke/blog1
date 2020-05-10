@@ -28,7 +28,7 @@
               =blog.title
           .date
             %h3
-              =blog.updated_at.strftime("%B %d, %Y")
+              =blog.created_at.strftime("%B %d, %Y")
           .body-trunc
             %p
               -exPost = blog.content.to_plain_text.index("[")

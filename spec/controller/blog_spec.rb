@@ -67,4 +67,10 @@ RSpec.describe BlogController, type: :controller do
 
   end
 
+  describe 'POST #create' do
+     it 'can create new record' do
+      post :create, params: {title: 'hoge' }
+     end
+  end
+
 end

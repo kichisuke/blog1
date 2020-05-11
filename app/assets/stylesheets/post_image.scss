@@ -8,7 +8,7 @@
     .post_area{
       position: relative;
       margin: 500px auto 0 auto;  
-      z-index: 999999;
+      z-index: 10;
       height: 100%;
       .post_title{
         background-color: #3CBC8D;
@@ -38,6 +38,15 @@
   height: 100%;
   border: 1px solid gray;
   border-radius: 4px;
+  .alert{
+    color:red;
+    margin-bottom: 5px;
+    ul{
+      padding: 2px;
+      border: 2px solid red;
+      list-style: none;
+    }
+  }
   }
 
   input[type="text"]{

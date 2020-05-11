@@ -37,12 +37,15 @@ class BlogController < ApplicationController
 
   def post_create
     @image = Cloudinary::Uploader.upload(params[:post][:image],:transformation=>[
-      {:width=>370, :height=>200, :crop=>"scale"}])
+      {:width=>370, :height=>200, :crop=>"scale"}]) if !params[:post][:image].nil?
     @post = Post.create(post_create_params)
     if @post.save
       redirect_to :post_image
     else
-      render "layouts/_new"
+      count = Post.where.not(image:nil).count
+      count <= 16 ? count = count : count = 16
+      @image = Post.all.order("created_at DESC").limit(count)
+      render "post_image"
     end  
   end
 
@@ -86,7 +89,7 @@ class BlogController < ApplicationController
 
   def post_create_params
     params[:title] = params[:post][:title]
-    params.permit(:title, :image).merge(:image => @image['secure_url'])
+    params[:post][:image].blank? ? params.permit(:title) : params.permit(:title, :image).merge(:image => @image['secure_url'])
   end
 
   def post_param

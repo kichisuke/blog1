@@ -9,12 +9,12 @@
         %p
           ↓ 
       .post_image_form_area
-        = form_with model: @post do |form|
+        = form_with model: @post ,local:true do |form|
           .field
             = render 'layouts/new', model: @post
             = form.label :"comment(under 10 characters)"
             .br
-            = form.text_field :title, maxlength:10
+            = form.text_field :title, maxlength: 10
             .br
             = form.label :image
             .br

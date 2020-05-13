@@ -9,18 +9,18 @@
   font-family: 'Open sans', sans-serif; 
   font-size: 30px;
   position: relative;
-  margin: 150px 0px 0px 450px;
+  margin: 150px 0px 0px 30%;
   padding: 0 30px 0 30px;
   z-index: 5;
 }
 
 .sub_title{
   font-family: 'Open Sans Condensed', sans-serif;
-  width:200px;
+  width:190px;
   font-size: 30px;
   color: #4ABDAC;
   position: absolute;
-  margin: 40px 600px 0px 600px;
+  margin: 40px 600px 0px 40%;
   padding: 0 10px 0 10px;
   background-color: white;
   z-index: 5;
@@ -28,34 +28,35 @@
 
 .line1 {
   position: absolute;
-  width: 1040px;
+  width: 73%;
   top: 85px;
   border: none;
   border-top: 1px solid #4ABDAC;
-  margin-left: 200px;
+  margin-left: 14%;
 }
 
 .main_image{
   z-index: 1;
-  width: 1040px;
-  padding: 100px 0 0 200px;
+  width: 100%;
+  margin-top: 100px;
+  margin-left: 14%;
   display: flex;
-  display: -moz-flex;
-  display: -o-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
-  flex-direction: row;
-  -moz-flex-direction: row;
-  -o-flex-direction: row;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
+  flex-direction: row;  
+  justify-content: flex-start;
+  flex-wrap: wrap;
   .image{
     z-index: 1;
     background-size: cover;
     position: relative;
     height:100%;
+    width: 100%;
+    img{
+      width: 350px;
+      height: 200px;
+    }
     }
   .image::before{
+      width: 100%;
       content: ' ';
       background-color: rgba(0,0,0,.5);
       position: absolute;
@@ -67,7 +68,7 @@
      }
    .title{
      margin-top: -50px;
-     z-index: 99999;
+     z-index: 19;
      position: relative;
     } 
       h1{
@@ -78,29 +79,30 @@
 }
 
 .main_title{
+  width: 155px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 30px;
   color: #4ABDAC;
   position: absolute;
-  margin: 80px 600px 0px 600px;
-  padding: 0 30px 0 30px;
+  margin: 80px 600px 0px 41%;
+  padding: 0 10px 0 10px;
   background-color: white;
   z-index: 5;
 }
 
 .line2 {
   position: absolute;
-  width: 1040px;
+  width: 73%;
   top: 380px;
   border: none;
   border-top: 1px solid #4ABDAC;
-  margin-left: 200px;
+  margin-left: 14%;
 }
 
 .posts {
   margin-top: 150px;
   padding-right: 160px;
-  padding-left: 160px;
+  padding-left: 13%;
   display: flex;
   flex-direction: row;  
   justify-content: space-around;
@@ -111,13 +113,16 @@
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  min-width: 300px;
   max-width: 300px;
   border-radius: 5px;
   margin: 20px 0px;
   .image {
     width: 100%;
     height: 200px;
+    img{
+      width: 300px;
+      height:200px;
+    }
   } 
   .image:hover{
     opacity : 0.5;

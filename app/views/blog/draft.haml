@@ -10,9 +10,9 @@
       =@blogs.created_at.strftime("%B %d, %Y")
     .content_body 
       =@blogs.content
-  .draft_post
-    = form_with url: 'draft/post',local:true do |form|
-      = form.submit "Post"
-  .draft_edit
-    = form_with url: 'draft/post',local:true do |form|
-      = form.submit "Re-Edit"    
+    .draft_post
+      = form_with url: 'draft/post',local:true do |form|
+        = form.submit "Post"
+    .draft_edit
+      = form_with url: 'draft/post',local:true do |form|
+        = form.submit "Re-Edit"    

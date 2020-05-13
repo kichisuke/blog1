@@ -10,8 +10,8 @@
       =@blogs.created_at.strftime("%B %d, %Y")
     .content_body 
       =@blogs.content
-  .edit
-    %a{href: '/blog/' + params[:id] + '/draft/edit'}
-      edit   
+    .edit
+      %a{href: '/blog/' + params[:id] + '/draft/edit'}
+        edit   
 .footer
   = render partial: 'layouts/footer'

@@ -10,30 +10,29 @@
     - @posts.each do |post|
       = link_to '#' + post.id.to_s, class:"post-image" do
         .image
-          =image_tag post.image ,size: "350x200" unless post.image.blank?
+          =image_tag post.image unless post.image.blank?
         .title
           %h1
             =post.title
   .main_title
     Latest Blog
   %hr.line2
-  .index_content
-    .posts#post_setion
-      - @blogs.each do |blog|
-        = link_to 'blog/' + blog.id.to_s, class:"post-card" do
-          .image
-            =image_tag blog.media ,size: "300x200" unless blog.media.blank? 
-          .title
-            %h2
-              =blog.title
-          .date
-            %h3
-              =blog.created_at.strftime("%B %d, %Y")
-          .body-trunc
-            %p
-              -exPost = blog.content.to_plain_text.index("[")
-              -if exPost==nil
-                -exPost = blog.content.to_plain_text.length
-              =blog.content.to_plain_text.slice(0,exPost) + "..."
+  .posts#post_setion
+    - @blogs.each do |blog|
+      = link_to 'blog/' + blog.id.to_s, class:"post-card" do
+        .image
+          =image_tag blog.media unless blog.media.blank? 
+        .title
+          %h2
+            =blog.title
+        .date
+          %h3
+            =blog.created_at.strftime("%B %d, %Y")
+        .body-trunc
+          %p
+            -exPost = blog.content.to_plain_text.index("[")
+            -if exPost==nil
+              -exPost = blog.content.to_plain_text.length
+            =blog.content.to_plain_text.slice(0,exPost) + "..."
   .footer
     = render partial: 'layouts/footer'

@@ -16,6 +16,7 @@
  */
  @import "./actiontext.scss";
  @import "./reset.scss";
+
 .header{
   z-index: 20;
   background-color:  white;
@@ -29,7 +30,7 @@
     color: #444;
     position:absolute;
     top: 15px;
-    left: 200px;
+    left: 20%;
     width: 100%;
     a{
       color: black;
@@ -40,7 +41,7 @@
     font-size: 20px;
     position:absolute;
     top: 25px;
-    left: 550px;
+    left: 40%;
     width: 500px;
     .topics{
       list-style: none;  
@@ -58,8 +59,7 @@
     font-family: sans-serif;
     font-size: 20px;
     position: absolute;
-    top: 30px;
-    right: 260px;
+    left: 90%;
   }
 
 .sign_out{
@@ -143,5 +143,97 @@ li.city:hover ul.topics_second {
     padding: 20px 0px 0px 100px;
     color:#fff;
     }
+  }
+}
+
+@media (max-width:1220px){
+  .top_title{
+    font-size: 20px;
+  }
+  .main_title {
+    font-size: 20px;
+    width: 105px; 
+  }
+  .sub_title {
+    font-size: 20px;
+    width: 125px;
+  }
+  hr{
+    margin-top: -10px;
+  }
+  .main_image{
+    .image{
+      img{
+        width: 250px;
+      }
+    }
+    .image::before{
+      width: 250px;
+    }
+  }
+  .posts{
+    .post-card{
+      width: 200px;
+    .image{
+      width: 200px;
+      img{
+        width: 200px;
+      }
+    }
+  }
+}
+.header{
+  a{
+  font-size: 1rem;
+  }
+  .contact{
+    left: 60%;
+  }
+}
+}
+
+@media (min-width:871px)and(max-width:1100px) {
+  .main_image{
+    .image{
+      img{
+        width: 250px;
+      }
+    }
+    .image::before{
+      width: 250px;
+    }
+  }
+}
+
+@media (max-width:870px) {
+  .main_image{
+    .image{
+      img{
+        width: 200px;
+      }
+    }
+    .image::before{
+      width: 200px;
+    }
+  }
+  .posts{
+    .post-card{
+      width: 150px;
+    .image{
+      width: 150px;
+      img{
+        width: 150px;
+      }
+    }
+  }
+}
+}
+
+@media (max-width:705px) {
+  .header_main{
+    display:none;
+  }
+  .header_menu{
+    display:none;
   }
 }

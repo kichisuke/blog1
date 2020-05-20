@@ -4,11 +4,11 @@
   .category
     .category_title
       Category
-    - @category.each do |c|
+    - @arr_category.uniq.each do |c|
       .blog_category
-      %a{href: '/category/' + c.genre}
+      %a{href: '/category/' + c}
         = fa_icon "chevron-right"
-        = c.genre
+        = c
   .blog_content
     .blog#blog_setion
       - @blogs.each do |blog|

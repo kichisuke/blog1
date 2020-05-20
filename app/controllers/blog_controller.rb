@@ -9,6 +9,7 @@ class BlogController < ApplicationController
   def blog
     @blogs = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(10)
     @category = Blog.where.not(genre: nil)
+    @arr_category = Blog.where.not(genre: nil).pluck(:genre)
   end
 
   def blog_post
@@ -74,17 +75,19 @@ class BlogController < ApplicationController
   def genre_open
     @blogs = Blog.where(genre: params[:genre]).page(params[:page]).per(10)
     @category = Blog.where.not(genre: nil)
+    @arr_category = Blog.where.not(genre: nil).pluck(:genre)
   end
 
   private
   def create_params
-    @image.blank? ? params.permit(:title, :content).merge(draft: "1") : params.permit(:title, :content).merge(:media => @image['secure_url'], draft: "1") 
+    @image.blank? ? params.permit(:title, :genre, :content).merge(draft: "1") : params.permit(:title, :genre,  :content).merge(:media => @image['secure_url'], draft: "1") 
   end
 
   def update_create_params
     params[:title] = params[:blog][:title]
+    params[:genre] = params[:blog][:genre]
     params[:content] = params[:blog][:content]
-    @image.blank? ? params.permit(:title, :content).merge(draft: "1") : params.permit(:title, :content).merge(:media => @image['secure_url'], draft: "1")
+    @image.blank? ? params.permit(:title, :genre, :content).merge(draft: "1") : params.permit(:title, :genre, :content).merge(:media => @image['secure_url'], draft: "1")
   end
 
   def post_create_params

@@ -4,11 +4,11 @@
   .category
     .category_title
       Category
-    - @category.each do |c|
+    - @arr_category.uniq.each do |c|
       .blog_category
-      %a{href: 'category/' + c.genre}
+      %a{href: 'category/' + c}
         = fa_icon "chevron-right"
-        = c.genre
+        = c
   .blog_content
     .new_post
       %a{href: '/new_post'}
@@ -35,6 +35,14 @@
           .genre
             = fa_icon "folder"
             =blog.genre
+  .mobile_category
+    .mobile_category_title
+      Category
+    - @arr_category.uniq.each do |c|
+      .mobile_blog_category
+      %a{href: 'category/' + c}
+        = fa_icon "chevron-right"
+        = c
   .page
     = paginate @blogs           
   .footer

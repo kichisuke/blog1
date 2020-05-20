@@ -1,6 +1,24 @@
 .container
   .header
     = render partial: 'layouts/header'
+  .mobile_content
+    .mobile_image
+      =image_tag @posts[0].image
+    %ul.mobile_post
+      %li.mobile_post_list_left
+        .image
+          = image_tag @posts[0].image
+        .date
+          = @posts[0].created_at.strftime("%B %d, %Y")
+        .title
+          = @posts[0].title
+      %li.mobile_post_list_right
+        .image
+          = image_tag @posts[1].image
+        .date
+          = @posts[1].created_at.strftime("%B %d, %Y")
+        .title
+          = @posts[1].title
   .top_title
     We can share anything about Japan
   .sub_title
@@ -36,3 +54,4 @@
             =blog.content.to_plain_text.slice(0,exPost) + "..."
   .footer
     = render partial: 'layouts/footer'
+

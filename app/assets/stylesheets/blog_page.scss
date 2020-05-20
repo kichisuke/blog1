@@ -44,7 +44,7 @@
 .category{
   position: relative;
   top: 200px;
-  margin-left: 1050px;
+  margin-left: 78%;
   .blog_category{
     margin-top: 15px;
   }
@@ -55,4 +55,30 @@
     padding-top: 20px;
     padding-left: 100px;
     }
+}
+
+.mobile_category{
+  display: none;
+}
+
+@media (max-width:705px) {
+  .blog_content{
+    margin-bottom: 100px;
+  }
+
+  .category{
+    display: none;
+  }
+
+  .mobile_category{
+    margin: -40px 0px 20px 20%;
+    display: block;
+    .mobile_blog_category{
+      margin-top: 5px;
+    }
+  }
+
+  .footer{
+    display: none;
+  }
 }

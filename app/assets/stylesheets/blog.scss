@@ -1,3 +1,7 @@
+.mobile_container{
+  visibility: hidden;
+}
+
 .container{
   position: relative;
   width: 100%;
@@ -37,7 +41,7 @@
 
 .main_image{
   z-index: 1;
-  width: 100%;
+  width: 86%;
   margin-top: 100px;
   margin-left: 14%;
   display: flex;

@@ -1,20 +1,22 @@
-.wrapper
-  .header
-    = render partial: 'layouts/header'
-  .blog_post_form_area 
-    = form_with model: @blogs do |form|
-      .blog_field
-        .title_form
-          = form.label :title
-          .br
-          = form.text_area :title
-          = form.label :genre
-          .br
-          = form.text_area :genre
-        .br
-        = form.file_field :media
-        .br
-        = form.rich_text_area :content
-        = form.submit "Make draft"
-.footer
-  = render partial: 'layouts/footer'    
+!!!
+%html
+  %head
+    = stylesheet_link_tag "blog_post"
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title Post New Article
+  %body
+    .wrapper
+      .header
+        = render partial: 'layouts/header'
+      .blog_post_form_area 
+        = form_with model: @blogs do |form|
+          .blog_post_form_area_title
+            = form.label :title
+            = form.text_area :title
+            = form.label :genre
+            = form.text_area :genre
+            = form.file_field :media
+            = form.rich_text_area :content
+            = form.submit "Make draft"
+    .footer
+      = render partial: 'layouts/footer'    

@@ -1,7 +1,12 @@
 .content{
   width: 100%;
-  margin-left: 300px;
+  margin-left: 30%;
   margin-top: 150px;
+  &_image{
+    img{
+    width: 80%;
+    }
+  }
   .content_title{
     margin-top: 30px;
     font-size: 30px;
@@ -17,10 +22,6 @@
     color: #777777;
     font-size: 20px;
     margin-top: 50px;
-    figure{
-      margin-top: 30px;
-      margin-left: -520px;
-    }
   }
 }
 .edit{
@@ -50,3 +51,34 @@
     border-radius: 100px;
   }
 }
+
+@media (max-width:705px) {
+  .content{
+    width:100%;
+    margin:200px 0 0 -300px;
+    &_image{
+      img{
+      margin-left: 50%;
+      width:60%;
+      }
+    }
+    .content_title{
+      width:100%;
+      font-size: 1.5em;
+    }
+    &_date{
+      width:100%;
+      font-size: 1em;
+    }
+    .content_body{
+      width:100%;
+      margin-top: 20px;
+      font-size: 1em;
+    }
+    .edit{
+      
+    }
+
+  }
+
+ }

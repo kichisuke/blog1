@@ -64,14 +64,30 @@
 @media (max-width:705px) {
   .blog_content{
     margin-bottom: 100px;
+    .blog{
+      .date{
+        font-size: 0.9em;
+      }
+      .title{
+        font-size: 1.3em;
+        margin-top: 10px;
+      }
+      .body-trunc{
+        margin-top: 5px;
+      }
+      .genre{
+        font-size: 0.8em;
+        margin: 20px 0 0 0px;
+      }
   }
+}
 
   .category{
     display: none;
   }
 
   .mobile_category{
-    margin: -40px 0px 20px 20%;
+    margin: -50px 0px 20px 15%;
     display: block;
     .mobile_blog_category{
       margin-top: 5px;

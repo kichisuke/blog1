@@ -153,7 +153,7 @@ li.city:hover ul.topics_second {
 @media (max-width:1220px){
  
   .top_title{
-    font-size: 20px;
+    font-size: 25px;
   }
   .main_title {
     font-size: 20px;
@@ -163,19 +163,15 @@ li.city:hover ul.topics_second {
     font-size: 20px;
     width: 125px;
   }
-  hr{
-    margin-top: -10px;
+
+  .line1 {
+    top: -13px;
   }
-  .main_image{
-    .image{
-      img{
-        width: 250px;
-      }
-    }
-    .image::before{
-      width: 250px;
-    }
+
+  .line2 {
+    top: -13px;
   }
+
   .posts{
     .post-card{
       width: 200px;
@@ -208,9 +204,6 @@ li.city:hover ul.topics_second {
   #chk_box{
     visibility: hidden;
   }
-
-  //------------------------------------------
-  //icon
 
   #menu_icon {
     display: inline-block;
@@ -335,8 +328,8 @@ li.city:hover ul.topics_second {
 }
 
 @media (min-width:871px)and(max-width:1100px) {
-
   .main_image{
+    width: 750px;
     .image{
       img{
         width: 250px;
@@ -350,6 +343,7 @@ li.city:hover ul.topics_second {
 
 @media (max-width:870px) {
   .main_image{
+    width: 600px;
     .image{
       img{
         width: 200px;
@@ -360,8 +354,10 @@ li.city:hover ul.topics_second {
     }
   }
   .posts{
+    width: 100%;
     .post-card{
       width: 150px;
+      padding: 0 2em 0 2em;
     .image{
       width: 150px;
       img{
@@ -387,11 +383,13 @@ li.city:hover ul.topics_second {
     display:none;
   }
   .main_title{
-    margin-top: 260px;
+    width:101px;
+    position: relative;
+    margin: 0px auto;
   }
   .line1{
     width: 100%;
-    margin: 230px 0 0 0 ;
+    margin: 380px 0 0 0;
   }
   .line2{
     display: none;
@@ -401,18 +399,20 @@ li.city:hover ul.topics_second {
   }
 
   .mobile_content{
-    display:inline;
+    display:block;
     position: absolute;
     width: 100%;
+    margin-top: 81px;
     .mobile_image{
-      margin: -70px 0 0 0;
+      width: 100%;
+      margin: 0 auto;
       img{
-        width: 100%;
         height: 250px;
+        width: 100%;
       }
     }
     .mobile_post{
-      margin-top: 150px;
+      margin-top: 110px;
       &_list_left{
         display: inline-block;
         margin-left: 15%;
@@ -440,17 +440,18 @@ li.city:hover ul.topics_second {
     }
   }
   .top_title{
-    position: absolute;
+    position: relative;
+    font-size: 0.5em;
     color:gray;
-    width:350px;
-    height:30px;
-    margin-top: 160px;
-    margin-left: 25%;
+    width: 50%;
+    height:10px;
+    margin: 0px auto;
+    top: 320px;
     background-color: white;
     border: solid 0.5px gray;
     border-radius: 12px;
     text-align: center;
-    padding:5px 1px 1px 1px;
+    padding:2px;
   }
 
   .post-card{
@@ -462,13 +463,12 @@ li.city:hover ul.topics_second {
     background-color: #4ABDAC;
     width: 100%;
     height: 60px;
-    margin-top:160px;
     bottom: 0;
     .footer_main{
       a{
-      position: absolute;
-      padding: 20px 0px 0px 100px;
-      color:#fff;
+        position: absolute;
+        padding: 20px 0px 0px 100px;
+        color:#fff;
       }
     }
   }

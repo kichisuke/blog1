@@ -19,6 +19,7 @@ class BlogController < ApplicationController
   end
   
   def new_post
+    # @blog = Blog.new
   end
 
   def draft
@@ -80,7 +81,7 @@ class BlogController < ApplicationController
 
   private
   def create_params
-    @image.blank? ? params.permit(:title, :genre, :content).merge(draft: "1") : params.permit(:title, :genre,  :content).merge(:media => @image['secure_url'], draft: "1") 
+    @image.blank? ? params.permit(:title, :genre, :city_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name, :content).merge(:media => @image['secure_url'], draft: "1") 
   end
 
   def update_create_params

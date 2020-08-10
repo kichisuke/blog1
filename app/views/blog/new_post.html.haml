@@ -9,12 +9,14 @@
       .header
         = render partial: 'layouts/header'
       .blog_post_form_area 
-        = form_with model: @blogs do |form|
+        = form_with model: @blog do |form|
           .blog_post_form_area_title
             = form.label :title
             = form.text_area :title
             = form.label :genre
             = form.text_area :genre
+            = form.label :city
+            = form.text_area :city_name
             = form.file_field :media
             = form.rich_text_area :content
             = form.submit "Make draft"

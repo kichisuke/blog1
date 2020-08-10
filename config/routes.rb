@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :index]
   root to: 'blog#index'
   get 'new_post', to: 'blog#new_post'
-  post 'blog_post', to: 'blog#create'
   post 'new_post', to: 'blog#create'
+  post 'blog_post', to: 'blog#create'
   patch '/blog', to: 'blog#update'
   get 'post_image', to: 'blog#post_image'
   post 'post_image', to: 'blog#post_create'

@@ -1,49 +1,58 @@
-.container
-  .header
-    = render partial: 'layouts/header'
-  .category
-    .category_title
-      Category
-    - @arr_category.uniq.each do |c|
-      .blog_category
-      %a{href: 'category/' + c}
-        = fa_icon "chevron-right"
-        = c
-  .blog_content
-    .new_post
-      %a{href: '/new_post'}
-        newpost
-    .blog#blog_setion
-      - @blogs.each do |blog|
-        .blog_post
-          .date
-            %h1
-              =blog.created_at.strftime("%B %d, %Y")
-          .title
-            %h2
-              %a{href: 'blog/' + blog.id.to_s}
-                =blog.title
-          .body-trunc
-            %p
-              -exPost = blog.content.to_plain_text.index("[")
-              -if exPost==nil
-                -exPost = blog.content.to_plain_text.length
-              =blog.content.to_plain_text.slice(0,exPost)
-            %p.more
-              %a{href: 'blog/' + blog.id.to_s}
-                Read more
-          .genre
-            = fa_icon "folder"
-            =blog.genre
-  .mobile_category
-    .mobile_category_title
-      Category
-    - @arr_category.uniq.each do |c|
-      .mobile_blog_category
-      %a{href: 'category/' + c}
-        = fa_icon "chevron-right"
-        = c
-  .page
-    = paginate @blogs           
-  .footer
-    = render partial: 'layouts/footer'
+!!!
+%html
+  %head
+    = stylesheet_link_tag "blog"
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title AnyTopicsJapan
+  %body
+    .blog_container
+      .header
+        = render partial: 'layouts/header'
+      .blog_container_blog_content
+        .blog_container_blog_content_new_post_button
+          %a{href: '/new_post'}
+            newpost
+        .blog_container_blog_content_blog#blog_setion
+          - @blogs.each do |blog|
+            .blog_post
+              .date
+                %h1
+                  =blog.created_at.strftime("%B %d, %Y")
+              .title
+                %h2
+                  %a{href: 'blog/' + blog.id.to_s}
+                    =blog.title
+              .body-trunc
+                %p
+                  -exPost = blog.content.to_plain_text.index("[")
+                  -if exPost==nil
+                    -exPost = blog.content.to_plain_text.length
+                  =blog.content.to_plain_text.slice(0,exPost)
+                %p.more
+                  %a{href: 'blog/' + blog.id.to_s}
+                    Read more
+              .genre
+                = fa_icon "folder"
+                =blog.genre
+        .blog_container_blog_content_category
+          %p
+            Category
+            %ul
+              - @category.uniq.each do |c|
+                %li
+                  %a{href: 'category/' + c}
+                    = fa_icon "chevron-right"
+                    = c        
+      .mobile_category
+        .mobile_category_title
+          Category
+        - @arr_category.uniq.each do |c|
+          .mobile_blog_category
+          %a{href: 'category/' + c}
+            = fa_icon "chevron-right"
+            = c
+      .page
+        = paginate @blogs           
+      .footer
+        = render partial: 'layouts/footer'
+    

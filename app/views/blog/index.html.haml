@@ -1,57 +1,72 @@
-.container
-  .header
-    = render partial: 'layouts/header'
-  .mobile_content
-    .mobile_image
-      =image_tag @posts[0].image
-    %ul.mobile_post
-      %li.mobile_post_list_left
-        .image
-          = image_tag @posts[0].image
-        .date
-          = @posts[0].created_at.strftime("%B %d, %Y")
-        .title
-          = @posts[0].title
-      %li.mobile_post_list_right
-        .image
-          = image_tag @posts[1].image
-        .date
-          = @posts[1].created_at.strftime("%B %d, %Y")
-        .title
-          = @posts[1].title
-  .top_title
-    We can share anything about Japan
-  .sub_title
-    Realtime Post
-  %hr.line1  
-  .main_image
-    - @posts.each do |post|
-      = link_to '#' + post.id.to_s, class:"post-image" do
-        .image
-          =image_tag post.image unless post.image.blank?
-        .title
-          %h1
-            =post.title
-  .main_title
-    Latest Blog
-  %hr.line2
-  .posts#post_setion
-    - @blogs.each do |blog|
-      = link_to 'blog/' + blog.id.to_s, class:"post-card" do
-        .image
-          =image_tag blog.media unless blog.media.blank? 
-        .title
-          %h2
-            =blog.title
-        .date
-          %h3
-            =blog.created_at.strftime("%B %d, %Y")
-        .body-trunc
+!!!
+%html
+  %head
+    = stylesheet_link_tag "index"
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title AnyTopicsJapan
+  %body
+    .container
+      .header
+        = render partial: 'layouts/header'
+      .mobile_content
+        .mobile_image
+          =image_tag @posts[0].image
+        %ul.mobile_post
+          %li.mobile_post_list_left
+            .image
+              = image_tag @posts[0].image
+            .date
+              = @posts[0].created_at.strftime("%B %d, %Y")
+            .title
+              = @posts[0].title
+          %li.mobile_post_list_right
+            .image
+              = image_tag @posts[1].image
+            .date
+              = @posts[1].created_at.strftime("%B %d, %Y")
+            .title
+              = @posts[1].title
+      .main_content        
+        .main_blog
+          - @blog.each do |blog|
+            .main_blog_container
+              .main_blog_title
+                = blog.title
+              .main_blog_city
+                = blog.city_name
+              .main_blog_time
+                = blog.created_at.strftime("%B %d, %Y")
+              .main_blog_image  
+                = image_tag blog.media unless blog.media.blank?
+              .main_blog_content 
+                = blog.content
+              .main_blog_footer_content  
+                .main_blog_footer_content_like
+                  100 likes
+                .main_blog_footer_content_tweet
+                  bird
+                .main_blog_footer_content_comment
+                  comment
+          = paginate @blog  
+        .popular_blog
           %p
-            -exPost = blog.content.to_plain_text.index("[")
-            -if exPost==nil
-              -exPost = blog.content.to_plain_text.length
-            =blog.content.to_plain_text.slice(0,exPost) + "..."
-  .footer
-    = render partial: 'layouts/footer'
-
+            Recently Popular Article
+          %ul.popular_blog_list
+            - @p_blog.each do |p_blog|
+              %li.popular_blog_list_title
+                = p_blog.title
+              %li.popular_blog_list_image
+                = image_tag p_blog.media unless p_blog.media.blank?
+        .main_content_category
+          %p
+            All Category
+            %ul
+              - @category.uniq.each do |c|
+                %li
+                  %a{href: 'category/' + c}
+                    = fa_icon "chevron-right"
+                    = c
+    .footer
+      = render partial: 'layouts/footer'
+    
+    

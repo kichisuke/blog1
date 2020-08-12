@@ -3,26 +3,20 @@
     AnyTopicsJapan
 .header_menu
   %ul.topics
-    %li.news
-      = link_to 'News', '#'
-    %li.blog
-      = link_to 'Blog', '/blog'
-    %li.post
-      = link_to 'Post', '/post_image'   
+    %li.all
+      = link_to 'All', '/blog'
+    %li.coffee
+      = link_to 'Coffee','category/coffee' 
+    %li.food
+      = link_to 'Food','category/food' 
     %li.city
       %a
         City
         %ul.topics_second
-          %li
-            %a{href: "#"}
-              Osaka
-          %li
-            %a
-              Tokyo     
-    %li.shopping
-      //Shopping
-    %li.japanese
-      //Japanese
+          - @city.each do |c|
+            %li
+              %a{href: "#"}
+                =c
     %li.contact
       %a{href: "#"}
         contact

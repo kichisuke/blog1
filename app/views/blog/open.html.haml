@@ -3,7 +3,7 @@
     = render partial: 'layouts/header'
   .content
     .content_image
-      =image_tag @blogs.media,size: "600x300" unless @blogs.media.blank?
+      = image_tag @blogs.media,size: "600x300" unless @blogs.media.blank?
     .content_title
       =@blogs.title
     .content_date

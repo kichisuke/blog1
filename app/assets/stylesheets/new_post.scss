@@ -14,28 +14,48 @@
         }
         textarea{
           width:60%;
+          height: 30px;
           display: block;
           margin: 0 auto;
+          font-size: 20px;
         }
         #genre{
           width:10%;
+          height: 20px;
           display: block;
           margin: 0 0 0 20%;
+          font-size: 15px;
+        }
+        #city_name{
+          width:5%;
+          height: 20px;
+          display: block;
+          margin: 0 0 0 20%;
+          font-size: 15px;
         }
         #media{
           display: block;
           margin: 20px 0 0 20%;
         }
+        #content{
+          width: 59%;
+          margin: 20px 0 0 20%;
+          min-height: 20em;
+          max-height: 20em;
+          overflow-y: auto;
+          img{
+            width: 200px;
+            height: 100px;
+          }
+         }
       }
-      #trix-toolbar-1{
-        display: block;
+      .trix-button-row{
         margin: 20px 0 0 20%;
+        .trix-button-group.trix-button-group--history-tools{
+          margin-right: 25%;
+        }
       }
-      #content{
-        width: 59%;
-        height: 500px;
-        margin: 20px 0 0 20%;
-       }
+   
        input[type="submit"]{
         width: 60%;
         height: 40px;
@@ -48,11 +68,6 @@
       }
     }
 }
-}
-
-img{
-  width: 200px;
-  height: 100px;
 }
 
 .footer{

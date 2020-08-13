@@ -30,15 +30,18 @@
         .main_blog
           - @blog.each do |blog|
             .main_blog_container
-              .main_blog_title
-                = blog.title
-              .main_blog_city
-                = blog.city_name
-              .main_blog_time
-                = blog.created_at.strftime("%B %d, %Y")
-              .main_blog_image  
-                = image_tag blog.media unless blog.media.blank?
-              .main_blog_content 
+              .main_blog_container_header
+                .main_blog_container_header_image  
+                  = image_tag blog.media unless blog.media.blank?
+                .main_blog_container_header_title_city_time_wrapper
+                  .main_blog_container_header_title_city_time_wrapper_title
+                    = blog.title
+                  .main_blog_container_header_city_time_wrapper   
+                    .main_blog_container_header_city_time_wrapper_city
+                      = blog.city_name
+                    .main_blog_container_header_city_time_wrapper_time
+                      = blog.created_at.strftime("%B %d, %Y")
+              .main_blog_container_content 
                 = blog.content
               .main_blog_footer_content  
                 .main_blog_footer_content_like
@@ -47,25 +50,28 @@
                   bird
                 .main_blog_footer_content_comment
                   comment
-          = paginate @blog  
-        .popular_blog
-          %p
-            Recently Popular Article
-          %ul.popular_blog_list
-            - @p_blog.each do |p_blog|
-              %li.popular_blog_list_title
-                = p_blog.title
-              %li.popular_blog_list_image
-                = image_tag p_blog.media unless p_blog.media.blank?
-        .main_content_category
-          %p
-            All Category
-            %ul
-              - @category.uniq.each do |c|
-                %li
-                  %a{href: 'category/' + c}
-                    = fa_icon "chevron-right"
-                    = c
+          = paginate @blog
+        .sub_info
+          .sub_info_self_introduction
+            You-Ichi  
+          .sub_info_popular_blog
+            %p
+              Recently Popular Article
+            %ul.sub_info_popular_blog_list
+              - @p_blog.each do |p_blog|
+                %li.sub_info_popular_blog_list_title
+                  = p_blog.title
+                %li.sub_info_popular_blog_list_image
+                  = image_tag p_blog.media unless p_blog.media.blank?
+          .sub_info_category
+            %p
+              All Category
+              %ul
+                - @category.uniq.each do |c|
+                  %li
+                    %a{href: 'category/' + c}
+                      = fa_icon "chevron-right"
+                      = c
     .footer
       = render partial: 'layouts/footer'
     

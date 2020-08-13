@@ -4,7 +4,6 @@ class BlogController < ApplicationController
   before_action{@category = Blog.where.not(genre: "").pluck(:genre)}
 
   def index
-
     @blog = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(5)
     @p_blog = Blog.where(draft: 0).order("created_at DESC").limit(3)
     @posts = Post.all.order("created_at DESC").limit(3)
@@ -22,7 +21,7 @@ class BlogController < ApplicationController
   end
   
   def new_post
-    # @blog = Blog.new
+    #@blog = Blog.new
   end
 
   def draft

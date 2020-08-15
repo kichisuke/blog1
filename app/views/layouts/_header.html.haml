@@ -6,16 +6,16 @@
     %li.all
       = link_to 'All', '/blog'
     %li.coffee
-      = link_to 'Coffee','category/coffee' 
+      = link_to 'Coffee','/category/coffee' 
     %li.food
-      = link_to 'Food','category/food' 
+      = link_to 'Food','/category/food' 
     %li.city
       %a
         City
         %ul.topics_second
           - @city.each do |c|
             %li
-              %a{href: "#"}
+              %a{href: "/city/" + c}
                 =c
     %li.contact
       %a{href: "#"}

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'blog/index'
   get 'blog/:id', to: 'blog#open'
   get 'category/:genre', to: 'blog#genre_open'
+  get 'city/:city_name', to: 'blog#city_open'
   get 'blog/:id/draft', to: 'blog#draft'
   post 'blog/:id/draft/post', to: 'blog#blog_post'
   get 'blog/:id/draft/edit', to: 'blog#draft_edit'

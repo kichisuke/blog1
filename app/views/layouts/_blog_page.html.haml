@@ -1,0 +1,43 @@
+.wrapper
+  .header
+    = render partial: 'layouts/header'
+  .main_content  
+    .blog_container
+      .blog_container_blog_content
+        .blog_container_blog_content_new_post_button
+          %a{href: '/new_post'}
+            newpost
+        - @blogs.each do |blog|
+          .blog_container_blog_content_blog_post
+            .blog_container_blog_content_blog_post_date
+              %h1
+                =blog.created_at.strftime("%B %d, %Y")
+            .blog_container_blog_content_blog_post_title
+              %h2
+                %a{href: '/blog/' + blog.id.to_s}
+                  =blog.title
+            .blog_container_blog_content_blog_post_content
+              %p
+                -exPost = blog.content.to_plain_text.index("[")
+                -if exPost==nil
+                  -exPost = blog.content.to_plain_text.length
+                =blog.content.to_plain_text.slice(0,exPost)
+              %p
+                %a{href: 'blog/' + blog.id.to_s}
+                  Read more
+            .blog_container_blog_content_blog_post_content_genre
+              = fa_icon "folder"
+              = blog.genre
+    .sub_info          
+      .sub_info_category
+        %p
+          Category
+        %ul
+          - @category.uniq.each do |c|
+            %li
+              %a{href: '/category/' + c}
+                = fa_icon "chevron-right"
+                = c
+  .footer
+    = render partial: 'layouts/footer'
+  

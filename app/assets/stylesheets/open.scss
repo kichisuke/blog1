@@ -1,34 +1,40 @@
 .content{
-  width: 100%;
-  margin-left: 30%;
-  margin-top: 150px;
-  &_image{
-    img{
-    width: 80%;
-    }
-  }
+  width: 80%;
+  margin: 150px auto 0 auto;
+  background-color: red;
   .content_title{
-    margin-top: 30px;
     font-size: 30px;
-    color:#4ABDAC;
     font-size: 30px;
-    font-family: 'Open sans', sans-serif;
+    text-align: center;
   }
   .content_date{
     margin-top: 10px;
     color:black;
+    text-align: center;
+  }
+  &_image{
+    margin-top: 50px;
+    img{
+      width: 100%;
+      height: 350px;
+    }
   }
   .content_body{
-    color: #777777;
+    background-color: blue;
     font-size: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
+    color: #676767;
+    img{
+      width: 50%;
+      height: 250px;
+    }
   }
-}
-.edit{
-  margin: 30px 0 0 0px;
-  a{
-  font-size: 20px;
-  color: blue;
+  .edit{
+    margin: 30px 0 0 0;
+    a{
+      font-size: 20px;
+      color: blue;
+    }
   }
 }
 
@@ -75,10 +81,5 @@
       margin-top: 20px;
       font-size: 1em;
     }
-    .edit{
-      
-    }
-
   }
-
  }

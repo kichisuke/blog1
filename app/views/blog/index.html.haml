@@ -31,8 +31,6 @@
           - @blog.each do |blog|
             .main_blog_container
               .main_blog_container_header
-                .main_blog_container_header_image  
-                  = image_tag blog.media unless blog.media.blank?
                 .main_blog_container_header_title_city_time_wrapper
                   .main_blog_container_header_title_city_time_wrapper_title
                     = blog.title
@@ -41,6 +39,8 @@
                       = blog.city_name
                     .main_blog_container_header_city_time_wrapper_time
                       = blog.created_at.strftime("%B %d, %Y")
+                .main_blog_container_header_image  
+                  = image_tag blog.media unless blog.media.blank?
               .main_blog_container_content 
                 = blog.content
               .main_blog_footer_content  
@@ -72,7 +72,7 @@
                     %a{href: 'category/' + c}
                       = fa_icon "chevron-right"
                       = c
-    .footer
-      = render partial: 'layouts/footer'
+.footer
+  = render partial: 'layouts/footer'
     
     

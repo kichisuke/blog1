@@ -18,12 +18,12 @@
  @import "./reset.scss";
 
 .header{
-  z-index: 20;
-  background-color:  white;
-  position: fixed;
   width: 100%;
   height: 80px;
   top: 0px;
+  z-index: 20;
+  background-color: #4ABDAC;
+  position: fixed;
   box-shadow: 0px 13px 35px -11px  rgba(35,35,35,.15);
   .header_main{
     font-size: 35px;
@@ -33,7 +33,7 @@
     left: 20%;
     width: 100%;
     a{
-      color: black;
+      color: white;
     }
   }
 
@@ -49,7 +49,7 @@
         display: inline-block;
         margin-left: 40px;
         a{
-          color: black;
+          color: white;
         }
       }
     }
@@ -87,7 +87,7 @@
 li.city ul.topics_second {
   position: absolute;
   visibility: hidden;
-  background-color: white;
+  background-color: #4ABDAC;
   top: 23px;
   left: 0px;
   width: 180px;
@@ -135,7 +135,7 @@ li.city:hover ul.topics_second {
   background-color: #4ABDAC;
   width: 100%;
   height: 60px;
-  margin-top:160px;
+  margin-top: 100px;
   bottom: 0;
   .footer_main{
     a{

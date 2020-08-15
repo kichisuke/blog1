@@ -32,26 +32,26 @@ class BlogController < ApplicationController
     @blogs = Blog.find(params[:id])
   end  
 
-  def post_image
-    count = Post.where.not(image:nil).count
-    count <= 16 ? count = count : count = 16
-    @post = Post.new
-    @image = Post.all.order("created_at DESC").limit(count)
-  end
+  #def post_image
+  #  count = Post.where.not(image:nil).count
+  #  count <= 16 ? count = count : count = 16
+  #  @post = Post.new
+  #  @image = Post.all.order("created_at DESC").limit(count)
+  #end
 
-  def post_create
-    @image = Cloudinary::Uploader.upload(params[:post][:image],:transformation=>[
-      {:width=>370, :height=>200, :crop=>"scale"}]) if !params[:post][:image].nil?
-    @post = Post.create(post_create_params)
-    if @post.save
-      redirect_to :post_image
-    else
-      count = Post.where.not(image:nil).count
-      count <= 16 ? count = count : count = 16
-      @image = Post.all.order("created_at DESC").limit(count)
-      render "post_image"
-    end  
-  end
+  #def post_create
+  #  @image = Cloudinary::Uploader.upload(params[:post][:image],:transformation=>[
+  #    {:width=>370, :height=>200, :crop=>"scale"}]) if !params[:post][:image].nil?
+  #  @post = Post.create(post_create_params)
+  #  if @post.save
+  #    redirect_to :post_image
+  #  else
+  #    count = Post.where.not(image:nil).count
+  #    count <= 16 ? count = count : count = 16
+  #    @image = Post.all.order("created_at DESC").limit(count)
+  #    render "post_image"
+  #  end  
+  #end
 
   def create
     @image = Cloudinary::Uploader.upload(params[:media],:transformation=>[
@@ -77,7 +77,11 @@ class BlogController < ApplicationController
 
   def genre_open
     @blogs = Blog.where(genre: params[:genre]).page(params[:page]).per(10)
-    @category = Blog.where.not(genre: nil)
+    @arr_category = Blog.where.not(genre: nil).pluck(:genre)
+  end
+
+  def city_open
+    @blogs = Blog.where(city_name: params[:city_name]).page(params[:page]).per(10)
     @arr_category = Blog.where.not(genre: nil).pluck(:genre)
   end
 

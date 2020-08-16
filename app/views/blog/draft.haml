@@ -1,18 +1,26 @@
-.wrapper
-  .header
-    = render partial: 'layouts/header'
-  .content
-    .content_image
-      =image_tag @blogs.media,size: "600x300" unless @blogs.media.blank?
-    .content_title
-      =@blogs.title
-    .content_date
-      =@blogs.created_at.strftime("%B %d, %Y")
-    .content_body 
-      =@blogs.content
-    .draft_post
-      = form_with url: 'draft/post',local:true do |form|
-        = form.submit "Post"
-    .draft_edit
-      = form_with url: 'draft/post',local:true do |form|
-        = form.submit "Re-Edit"    
+!!!
+%html
+  %head
+    = stylesheet_link_tag "draft"
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    .header
+      = render partial: 'layouts/header'
+    .content
+      .content_image
+        =image_tag @blogs.media unless @blogs.media.blank?
+      .content_title
+        =@blogs.title
+      .content_date
+        =@blogs.created_at.strftime("%B %d, %Y")
+      .content_body 
+        =@blogs.content
+      .button_wrapper
+        .button_wrapper_draft_post
+          = form_with url: 'draft/post',local:true do |form|
+            = form.submit "Post"
+        .button_wrapper_draft_edit
+          = form_with url: 'draft/post',local:true do |form|
+            = form.submit "Re-Edit"    
+    .footer
+      = render partial: 'layouts/footer'

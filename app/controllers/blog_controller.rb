@@ -29,7 +29,7 @@ class BlogController < ApplicationController
   end
 
   def draft_edit
-    @blogs = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])
   end  
 
   #def post_image

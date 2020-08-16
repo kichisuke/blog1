@@ -1,27 +1,28 @@
-.wrapper
-  .header
-    = render partial: 'layouts/header'
-  .blog_edit_form_area    
-    = form_with model: @blogs do |form|
-      .blog_field
-        .id_area
-          -@url = request.url
-          -@id = params[:id].to_s
-        .title_form#edit_title
-          = form.hidden_field :id, value: -@id
-          = form.label :title
-          .br
-          = form.text_area :title
-          .br
-          = form.label :genre
-          .br
-          = form.text_area :genre
-        .br
-        = image_tag @blogs.media
-        .br
-        = form.file_field :media
-        .br
-        = form.rich_text_area :content
-        = form.submit "Modify draft"
-  .footer
-    = render partial: 'layouts/footer'
+%html
+  %head
+    = stylesheet_link_tag "draft_edit"
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    .wrapper
+      .header
+        = render partial: 'layouts/header'
+      .blog_edit_form_area
+        = form_with model: @blog do |form|
+          .id_area
+            = form.hidden_field :id, :value => @id = params[:id].to_s
+            -# - @url = request.url
+            -# - @id = params[:id].to_s
+          .title_form#edit_title
+            .blog_post_form_area_title
+              = form.label :title
+              = form.text_area :title
+              = form.label :genre
+              = form.text_area :genre
+              = form.label :city
+              = form.text_area :city_name
+              = form.file_field :media
+              = form.rich_text_area :content
+              = form.submit "Make draft"
+      .footer
+        = render partial: 'layouts/footer'
+  

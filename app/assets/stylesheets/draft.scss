@@ -27,15 +27,37 @@
     }
   }
   &_edit{
-    width: 150px;
-    background-color: #4ABDAC;
-    margin: 30px auto 0 auto;
-    text-align: center;
+    margin: 20px 0 0 0;
     a{
-      color: white;
+      font-size: 25px;
+      color: blue;
     }
   }
 }
+
+.button_wrapper{
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto 0 auto;
+  &_draft_post{
+    input{
+      width: 100px;
+      height: 30px;
+      background-color: #4ABDAC;
+      color: white;
+    }
+  }
+    &_draft_edit{
+      input{
+        width: 100px;
+        height: 30px;
+        background-color: #4ABDAC;
+        color: white;
+      } 
+}
+}
+
 
 @media (max-width:705px) {
   .content{

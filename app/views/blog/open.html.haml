@@ -15,6 +15,13 @@
         =image_tag @blogs.media unless @blogs.media.blank?
       .content_body 
         =@blogs.content
+      .main_blog_footer_content  
+        .main_blog_footer_content_like
+          100 likes
+        .main_blog_footer_content_tweet
+          bird
+        .main_blog_footer_content_comment
+          comment  
       .content_edit
         %a{href: '/blog/' + params[:id] + '/draft/edit'}
           edit

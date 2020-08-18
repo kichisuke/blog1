@@ -21,7 +21,7 @@
                 -exPost = blog.content.to_plain_text.index("[")
                 -if exPost==nil
                   -exPost = blog.content.to_plain_text.length
-                =blog.content.to_plain_text.slice(0,exPost)
+                = simple_format(truncate(blog.content.to_plain_text, length:100))
               %p
                 %a{href: 'blog/' + blog.id.to_s}
                   Read more
@@ -30,14 +30,14 @@
               = blog.genre
     .sub_info          
       .sub_info_category
-        %p
-          Category
-        %ul
-          - @category.uniq.each do |c|
-            %li
-              %a{href: '/category/' + c}
-                = fa_icon "chevron-right"
-                = c
+        %p#category_title
+          All Category
+          %ul
+            - @category.uniq.each do |c|
+              %li
+                %a{href: '/category/' + c}
+                  = fa_icon "chevron-right"
+                  = c
   .footer
     = render partial: 'layouts/footer'
   

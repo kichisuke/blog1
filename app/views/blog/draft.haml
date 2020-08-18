@@ -7,12 +7,12 @@
     .header
       = render partial: 'layouts/header'
     .content
-      .content_image
-        =image_tag @blogs.media unless @blogs.media.blank?
       .content_title
         =@blogs.title
       .content_date
         =@blogs.created_at.strftime("%B %d, %Y")
+      .content_image
+        =image_tag @blogs.media unless @blogs.media.blank?
       .content_body 
         =@blogs.content
       .button_wrapper

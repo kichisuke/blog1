@@ -36,7 +36,7 @@
                     = blog.title
                   .main_blog_container_header_city_time_wrapper   
                     .main_blog_container_header_city_time_wrapper_city
-                      = blog.city_name
+                      = blog.pref_name
                     .main_blog_container_header_city_time_wrapper_time
                       = blog.created_at.strftime("%B %d, %Y")
                 .main_blog_container_header_image  
@@ -52,7 +52,7 @@
                 .main_blog_footer_content_like
                   100 likes
                 .main_blog_footer_content_tweet
-                  bird
+                  = fa_icon "twitter 3x"
                 .main_blog_footer_content_comment
                   comment
           = paginate @blog

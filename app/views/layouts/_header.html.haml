@@ -1,7 +1,9 @@
 .header_main
-  %a{href: "/"}
-    AnyTopicsJapan
+
 .header_menu
+  %ul.main_title
+    %a{href: "/"}
+      AnyTopicsJapan
   %ul.topics
     %li.all
       = link_to 'All', '/blog'
@@ -13,15 +15,18 @@
       %a
         City
         %ul.topics_second
-          - @city.each do |c|
+          - @pref.each do |p|
             %li
-              %a{href: "/city/" + c}
-                =c
+              %a{href: "/city/" + p}
+                =p
     %li.contact
       %a{href: "#"}
-        contact
-.sign_out
-  =link_to 'SignOut', "/users/sign_out", method: :delete if user_signed_in?
+        contact 
+  %ul.auth_menu
+    %li
+      =link_to 'Draft', "/draft_open", method: :get if user_signed_in?        
+    %li
+      =link_to 'SignOut', "/users/sign_out", method: :delete if user_signed_in?
 .mobile_header_content
   .mobile_main_title
     %a{href: "/"}
@@ -48,4 +53,4 @@
           city
       %li.mobile_main_menu_contact
         %p
-          contact            
+          contact

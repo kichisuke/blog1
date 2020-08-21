@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_175926) do
+ActiveRecord::Schema.define(version: 2020_08_21_094251) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -51,11 +51,9 @@ ActiveRecord::Schema.define(version: 2020_08_09_175926) do
     t.text "media"
     t.text "genre"
     t.boolean "draft"
-    t.boolean "city_flag"
-    t.boolean "food_flag"
-    t.boolean "coffee_flag"
-    t.string "city_name"
+    t.string "pref_name"
     t.string "food_name"
+    t.string "city_name"
   end
 
   create_table "post_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -87,7 +85,6 @@ ActiveRecord::Schema.define(version: 2020_08_09_175926) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username", default: "", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

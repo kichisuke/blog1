@@ -5,8 +5,7 @@
     .blog_container
       .blog_container_blog_content
         .blog_container_blog_content_new_post_button
-          %a{href: '/new_post'}
-            newpost
+          =link_to 'New Post', "/new_post", method: :get if user_signed_in?
         - @blogs.each do |blog|
           .blog_container_blog_content_blog_post
             .blog_container_blog_content_blog_post_date

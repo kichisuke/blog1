@@ -22,8 +22,11 @@
           bird
         .main_blog_footer_content_comment
           comment  
-      .content_edit
-        %a{href: '/blog/' + params[:id] + '/draft/edit'}
-          edit
+      - if user_signed_in?
+        .content_edit
+          .content_edit_edit
+            =link_to 'Edit', '/blog/' + params[:id] + '/draft/edit', method: :get
+          .content_edit_delete
+            =link_to 'Delete', '/blog/' + params[:id] + '/destroy', method: :delete
     .footer
       = render partial: 'layouts/footer'

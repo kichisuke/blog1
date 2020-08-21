@@ -30,12 +30,26 @@
     }
   }
   &_edit{
-    width: 150px;
-    background-color: #4ABDAC;
+    width: 50%;
+    display: flex;
     margin: 30px auto 0 auto;
     text-align: center;
-    a{
-      color: white;
+    &_edit{
+      width: 300px;
+      padding: 10px;
+      background-color: #4ABDAC;
+      a{
+        color: white;
+      }
+    }
+    &_delete{
+      width: 300px;
+      padding: 10px;
+      margin-left: 30px;
+      background-color: #4ABDAC;
+      a{
+        color: white;
+        }
     }
   }
 }

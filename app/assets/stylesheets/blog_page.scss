@@ -5,12 +5,13 @@
 .blog_container{
   width: 40%;
   height: auto;
-  margin: 150px 0 0 15%;
+  margin: 80px 0 0 15%;
     &_blog_content{
       width: 100%;
       &_new_post_button{
+        width: 100%;
         height: 30px;
-        margin: 0 0 0 0;
+        margin: 20px 0 0 0;
         a{
           border: solid 1px #4ABDAC;
           background-color: #4ABDAC;
@@ -50,7 +51,7 @@
 
 .sub_info{
   width: 20%;
-  margin: 180px 0 0 8%;
+  margin: 120px 0 0 8%;
   &_category{
     width: 50%;
     margin: 40px 0 0 15%;

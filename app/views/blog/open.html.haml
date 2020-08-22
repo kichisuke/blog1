@@ -15,13 +15,14 @@
         =image_tag @blogs.media unless @blogs.media.blank?
       .content_body 
         =@blogs.content
-      .main_blog_footer_content  
-        .main_blog_footer_content_like
-          100 likes
-        .main_blog_footer_content_tweet
-          bird
-        .main_blog_footer_content_comment
-          comment  
+      .content_footer  
+        .content_footer_like
+          = link_to '/blogs/' + params[:id] + '/likes',method: :post do 
+            = fa_icon "heart-o 3x"
+            %p
+              like
+        .content_footer_twitter
+          = fa_icon "twitter 3x"
       - if user_signed_in?
         .content_edit
           .content_edit_edit

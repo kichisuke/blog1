@@ -50,7 +50,8 @@
                       Read More
               .main_blog_footer_content  
                 .main_blog_footer_content_like
-                  100 likes
+                  = blog.likes.count
+                  likes
                 .main_blog_footer_content_tweet
                   = fa_icon "twitter 3x"
                 .main_blog_footer_content_comment

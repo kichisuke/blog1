@@ -29,6 +29,17 @@
       height: 250px;
     }
   }
+  &_footer{
+    display: flex;
+    &_like{
+      a{
+        color: red;
+      }
+    }
+    &_twitter{
+      color:skyblue;
+    }
+  }
   &_edit{
     width: 50%;
     display: flex;

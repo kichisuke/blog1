@@ -2,6 +2,7 @@
 %html
   %head
     = stylesheet_link_tag "open"
+    = javascript_pack_tag 'open', 'data-turbolinks-track': 'reload'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
     .header
@@ -15,14 +16,14 @@
         =image_tag @blogs.media unless @blogs.media.blank?
       .content_body 
         =@blogs.content
-      .content_footer  
+      .content_footer
         .content_footer_like
-          = link_to '/blogs/' + params[:id] + '/likes',method: :post do 
-            = fa_icon "heart-o 3x"
-            %p
-              like
+          #content_footer_like_flag
+            = @flag
+          #content_footer_like_button
+            = fa_icon "heart-o 2x"
         .content_footer_twitter
-          = fa_icon "twitter 3x"
+          = fa_icon "twitter 2x"
       - if user_signed_in?
         .content_edit
           .content_edit_edit
@@ -31,3 +32,4 @@
             =link_to 'Delete', '/blog/' + params[:id] + '/destroy', method: :delete
     .footer
       = render partial: 'layouts/footer'
+

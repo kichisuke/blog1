@@ -73,6 +73,19 @@ class BlogController < ApplicationController
 
   def open
     @blogs = Blog.find(params[:id])
+    @alreadylike = Like.find_by(ip: request.remote_ip, blog_id: params[:id])
+    @flag = ""
+    if @alreadylike
+      @flag = "already"
+      "destroyする"
+      # ここでハートを塗り潰しに書き換える
+      # redirect_back(fallback_location: root_path)
+      # flash[:notice] = "You alredy liked it, thank you!"
+    else
+      @flag = "not"
+      @like = Like.create(blog_id: params[:blog_id], ip: request.remote_ip)
+      # redirect_back(fallback_location: root_path)
+    end
   end
 
   def genre_open

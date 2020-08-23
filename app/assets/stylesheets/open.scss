@@ -30,14 +30,21 @@
     }
   }
   &_footer{
+    width: 13%;
     display: flex;
+    margin: 30px 0 0 0;
     &_like{
-      a{
-        color: red;
+      margin: -14px 0 0 0;
+      color: red;
+      #content_footer_like_flag{
+        visibility: hidden;
       }
     }
     &_twitter{
+      position: absolute;
       color:skyblue;
+      margin-left: 90px;
+      font-size: 20px;
     }
   }
   &_edit{

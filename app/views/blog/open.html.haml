@@ -24,12 +24,36 @@
             = fa_icon "heart-o 2x"
         .content_footer_twitter
           = fa_icon "twitter 2x"
+      .comment_show_form
+        %p.comment_show_form_title
+          Comments
+          - @comment.each do |c|
+            %ul
+              %p
+                John
+              %p
+                = c.created_at.strftime("%B %d, %Y" +" at " + "%s")
+              %p.comment_show_form_content
+                = c.content    
       - if user_signed_in?
         .content_edit
           .content_edit_edit
             =link_to 'Edit', '/blog/' + params[:id] + '/draft/edit', method: :get
           .content_edit_delete
             =link_to 'Delete', '/blog/' + params[:id] + '/destroy', method: :delete
+       
+    .comment_post_form
+      %p.comment_post_form_title
+        Add a Comment
+      %ul
+        = form_with url:'/blog/:id/comment', method:'post' do |form|
+          = form.hidden_field :url, value: request.url.split("/").last
+          %li
+            = form.text_area :name
+          %li
+            = form.text_area :content  
+          %li  
+            = form.submit "Post Comment"
     .footer
       = render partial: 'layouts/footer'
 

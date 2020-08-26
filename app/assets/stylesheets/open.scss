@@ -72,6 +72,51 @@
   }
 }
 
+.comment_show_form{
+  margin-top: 100px;
+  &_title{
+    font-size: 20px;
+  }
+  ul{
+    margin-top: 30px;
+    list-style: none;
+  }
+  &_content{
+    border: 1px solid #f2f4f7;
+  }
+}
+
+.comment_post_form{
+  width: 42%;
+  margin: 50px auto 0 auto;
+  padding: 20px 20px 20px 50px;
+  background-color: white;
+  border-radius: 10px;
+  &_title{
+   width: 100%;
+   font-size: 20px;
+  }
+  ul{
+    width: 100%;
+    list-style: none;
+  }
+  #name{
+    width: 80%;
+    height: 30px;
+    font-size: 15px;
+  }
+  #content{
+    width: 80%;
+    height: 300px;
+  }
+  input{
+    width: 30%;
+    height: 50px;
+    background-color: #4ABDAC;
+    color: white;
+  }
+}
+
 @media (max-width:705px) {
   .content{
     width:100%;

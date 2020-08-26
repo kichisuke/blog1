@@ -19,6 +19,12 @@ class BlogController < ApplicationController
     name = '/blog/' + params[:id].to_s
     redirect_to name
   end
+
+  def comment_post
+    @comment = Comment.create(comment_params)
+    name = '/blog/' + params[:url]
+    redirect_to name
+  end
   
   def new_post
     #@blog = Blog.new
@@ -73,12 +79,11 @@ class BlogController < ApplicationController
 
   def open
     @blogs = Blog.find(params[:id])
+    @comment = Comment.where(blog_id: params[:id])
     @alreadylike = Like.find_by(ip: request.remote_ip, blog_id: params[:id])
     @flag = ""
     if @alreadylike
       @flag = "already"
-      "destroyする"
-      # ここでハートを塗り潰しに書き換える
       # redirect_back(fallback_location: root_path)
       # flash[:notice] = "You alredy liked it, thank you!"
     else
@@ -94,7 +99,7 @@ class BlogController < ApplicationController
   end
 
   def city_open
-    @blogs = Blog.where(city_name: params[:city_name]).page(params[:page]).per(10)
+    @blogs = Blog.where(pref_name: params[:city_name]).page(params[:page]).per(10)
     @arr_category = Blog.where.not(genre: nil).pluck(:genre)
   end
 
@@ -128,6 +133,10 @@ class BlogController < ApplicationController
 
   def post_param
     params.permit(:id).merge(draft: "0")
+  end
+
+  def comment_params
+    params.permit(:content).merge(blog_id: params[:url])
   end
   
 end

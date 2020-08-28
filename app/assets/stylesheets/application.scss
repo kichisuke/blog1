@@ -117,9 +117,9 @@ li.city:hover ul.topics_second {
   bottom: 0;
   .footer_main{
     a{
-    position: absolute;
-    padding: 20px 0px 0px 100px;
-    color:#fff;
+      position: absolute;
+      padding: 20px 0px 0px 100px;
+      color:#fff;
     }
   }
 }
@@ -335,8 +335,10 @@ li.city:hover ul.topics_second {
         margin: 10px 0 0 0;
       }
       #tweet{
-        color:skyblue;
         margin-bottom: 10px;
+        a{
+          color:skyblue;
+        }
       }
       &_title{
         height: 30px;

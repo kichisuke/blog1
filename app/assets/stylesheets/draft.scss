@@ -57,30 +57,3 @@
       } 
 }
 }
-
-
-@media (max-width:705px) {
-  .content{
-    width:100%;
-    margin:200px 0 0 -300px;
-    &_image{
-      img{
-      margin-left: 50%;
-      width:60%;
-      }
-    }
-    .content_title{
-      width:100%;
-      font-size: 1.5em;
-    }
-    &_date{
-      width:100%;
-      font-size: 1em;
-    }
-    .content_body{
-      width:100%;
-      margin-top: 20px;
-      font-size: 1em;
-    }
-  }
- }

@@ -1,5 +1,4 @@
 .header_main
-
 .header_menu
   %ul.main_title
     %a{href: "/"}
@@ -27,30 +26,27 @@
       =link_to 'Draft', "/draft_open", method: :get if user_signed_in?        
     %li
       =link_to 'SignOut', "/users/sign_out", method: :delete if user_signed_in?
-.mobile_header_content
-  .mobile_main_title
-    %a{href: "/"}
-      AnyTopicsJapan
-  %label{for: "chk_box", id: 'menu_icon'}
-    %span
-  %input{type: "checkbox", id:"chk_box"}
-  .mobile_main_menu
-    .mobile_main_menu_title
-      %p
-        menu
-    %ul
-      %li.mobile_main_menu_news
-        %p
-          = link_to 'News', '#'
-      %li.mobile_main_menu_blog
-        %p
-          = link_to 'Blog', '/blog'
-      %li.mobile_main_menu_post
-        %p
-          post
-      %li.mobile_main_menu_city
-        %p
-          city
-      %li.mobile_main_menu_contact
-        %p
-          contact
+  %ul.mobile_header_content
+    %label{for: "chk_box", id: 'menu_icon'}
+      %span
+    %input{type: "checkbox", id:"chk_box"}
+    .mobile_header_menu
+      %ul.mobile_header_menu_wrapper
+        %li.mobile_header_menu_wrapper_all
+          = link_to 'All', '/blog'
+        %li.mobile_header_menu_wrapper_coffee
+          = link_to 'Coffee','/category/coffee' 
+        %li.mobile_header_menu_wrapper_food
+          = link_to 'Food','/category/food' 
+        %li.mobile_header_menu_wrapper_city
+          %a
+            City
+            %ul
+              - @pref.each do |p|
+                %li
+                  %a{href: "/city/" + p}
+                    =p
+        %li.mobile_header_menu_wrapper_contact
+          %a{href: "#"}
+            contact
+            

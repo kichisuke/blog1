@@ -8,23 +8,23 @@
           =link_to 'New Post', "/new_post", method: :get if user_signed_in?
         - @blogs.each do |blog|
           .blog_container_blog_content_blog_post
-            .blog_container_blog_content_blog_post_date
-              %h1
-                =blog.created_at.strftime("%B %d, %Y")
             .blog_container_blog_content_blog_post_title
               %h2
                 %a{href: '/blog/' + blog.id.to_s}
                   =blog.title
+            .blog_container_blog_content_blog_post_date
+              %h1
+                =blog.created_at.strftime("%B %d, %Y")      
             .blog_container_blog_content_blog_post_content
               %p
                 -exPost = blog.content.to_plain_text.index("[")
                 -if exPost==nil
                   -exPost = blog.content.to_plain_text.length
                 = simple_format(truncate(blog.content.to_plain_text, length:100))
-              %p
-                %a{href: 'blog/' + blog.id.to_s}
+              %p#read_button
+                %a{href: '/blog/' + blog.id.to_s}
                   Read more
-            .blog_container_blog_content_blog_post_content_genre
+            .blog_container_blog_content_genre
               = fa_icon "folder"
               = blog.genre
     .sub_info          

@@ -5,7 +5,7 @@ class BlogController < ApplicationController
 
   def index
     @blog = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(5)
-    @p_blog = Blog.where(draft: 0).order("created_at DESC").limit(3)
+    @p_blog = Blog.joins(:likes).order("likes.id desc").limit(3).distinct
     @posts = Post.all.order("created_at DESC").limit(3)
   end
 
@@ -136,7 +136,7 @@ class BlogController < ApplicationController
   end
 
   def comment_params
-    params.permit(:content).merge(blog_id: params[:url])
+    params.permit(:content, :name).merge(blog_id: params[:url])
   end
   
 end

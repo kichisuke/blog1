@@ -8,25 +8,7 @@
     .container
       .header
         = render partial: 'layouts/header'
-      .mobile_content
-        .mobile_image
-          =image_tag @posts[0].image
-        %ul.mobile_post
-          %li.mobile_post_list_left
-            .image
-              = image_tag @posts[0].image
-            .date
-              = @posts[0].created_at.strftime("%B %d, %Y")
-            .title
-              = @posts[0].title
-          %li.mobile_post_list_right
-            .image
-              = image_tag @posts[1].image
-            .date
-              = @posts[1].created_at.strftime("%B %d, %Y")
-            .title
-              = @posts[1].title
-      .main_content        
+      .main_content
         .main_blog
           - @blog.each do |blog|
             .main_blog_container
@@ -43,19 +25,45 @@
                   = image_tag blog.media unless blog.media.blank?
               .main_blog_container_content
                 %p
-                  = simple_format(truncate(blog.content.to_plain_text, length:200))
+                  = safe_join(truncate(blog.content.to_plain_text, length:200).split("\n"),tag(:br))
                 .main_blog_container_content_button
                   %p
                     %a{href: 'blog/' + blog.id.to_s}
                       Read More
-              .main_blog_footer_content  
+              .main_blog_footer_content
+                .main_blog_footer_content_tweet
+                  = fa_icon "twitter 3x"
                 .main_blog_footer_content_like
                   = blog.likes.count
                   likes
-                .main_blog_footer_content_tweet
-                  = fa_icon "twitter 3x"
                 .main_blog_footer_content_comment
-                  comment
+                  = blog.comments.count
+                  comments
+          = paginate @blog
+        .main_blog_mobile
+          - @blog.each do |blog|
+            .main_blog_mobile_container
+              .main_blog_mobile_container_header
+                .main_blog_mobile_container_header_image  
+                  %a{href: 'blog/' + blog.id.to_s}
+                    = image_tag blog.media unless blog.media.blank?
+                .main_blog_mobile_container_header_title_city_time_wrapper
+                  .main_blog_mobile_container_header_city_time_wrapper   
+                    .main_blog_mobile_container_header_city_time_wrapper_time
+                      = blog.created_at.strftime("%B %d, %Y")
+                    .main_blog_mobile_container_header_city_time_wrapper_city
+                      ,
+                      = blog.pref_name  
+                  .main_blog_mobile_container_header_title_city_time_wrapper_title
+                    %a{href: 'blog/' + blog.id.to_s}
+                      = blog.title
+              .main_blog_mobile_footer_content
+                .main_blog_mobile_footer_content_like
+                  = blog.likes.count
+                  likes
+                .main_blog_mobile_footer_content_comment
+                  = blog.comments.count
+                  comments  
           = paginate @blog
         .sub_info
           .sub_info_self_introduction
@@ -64,27 +72,27 @@
                 Author
             .sub_info_self_introduction_image
               = image_tag "utcXEvni_400x400.jpg"
-            %p
+            %p#name
               You-Ichi
-            %p
+            %p#explanation1
               Freelance Developer
-            %p
+            %p#explanation2
               &  
-            %p
+            %p#explanation3
               Sales Representative
-            %p
-              &  
-            %p
+            %p#explanation4
+              &
+            %p#explanation5
               Coffee Lover!  
           .sub_info_popular_blog
-            %p
+            %p.sub_info_popular_blog_title
               Popular Article
-            %ul.sub_info_popular_blog_list
               - @p_blog.each do |p_blog|
-                %li.sub_info_popular_blog_list_title
-                  = p_blog.title
-                %li.sub_info_popular_blog_list_image
-                  = image_tag p_blog.media unless p_blog.media.blank?
+                %ul.sub_info_popular_blog_list
+                  %li.sub_info_popular_blog_list_title
+                    = p_blog.title
+                  %li.sub_info_popular_blog_list_image
+                    = image_tag p_blog.media unless p_blog.media.blank?
           .sub_info_category
             %p#category_title
               All Category
@@ -94,7 +102,7 @@
                     %a{href: 'category/' + c}
                       = fa_icon "chevron-right"
                       = c
-.footer
-  = render partial: 'layouts/footer'
+    .footer
+      = render partial: 'layouts/footer'
     
     

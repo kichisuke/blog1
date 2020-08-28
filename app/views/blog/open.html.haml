@@ -12,6 +12,8 @@
         =@blogs.title
       .content_date
         =@blogs.created_at.strftime("%B %d, %Y")
+      .content_city
+        =@blogs.pref_name
       .content_image
         =image_tag @blogs.media unless @blogs.media.blank?
       .content_body 
@@ -23,25 +25,26 @@
           #content_footer_like_button
             = fa_icon "heart-o 2x"
         .content_footer_twitter
-          = fa_icon "twitter 2x"
-      .comment_show_form
-        %p.comment_show_form_title
-          Comments
-          - @comment.each do |c|
-            %ul
-              %p
-                John
-              %p
-                = c.created_at.strftime("%B %d, %Y" +" at " + "%s")
-              %p.comment_show_form_content
-                = c.content    
+          %a{href: '/blog/' + @blogs.id.to_s}
+            = fa_icon "twitter 2x"
+      - if @comment.count != 0
+        .comment_show_form
+          %p.comment_show_form_title
+            Comments
+            - @comment.each do |c|
+              %ul
+                %p.comment_show_form_name
+                  = c.name
+                %p.comment_show_form_date
+                  = c.created_at.strftime("%B %d, %Y" +" at " + "%H" + ":" + "%M")
+                %p.comment_show_form_content
+                  = safe_join(c.content.split("\n"),tag(:br))
       - if user_signed_in?
         .content_edit
           .content_edit_edit
             =link_to 'Edit', '/blog/' + params[:id] + '/draft/edit', method: :get
           .content_edit_delete
             =link_to 'Delete', '/blog/' + params[:id] + '/destroy', method: :delete
-       
     .comment_post_form
       %p.comment_post_form_title
         Add a Comment
@@ -49,9 +52,9 @@
         = form_with url:'/blog/:id/comment', method:'post' do |form|
           = form.hidden_field :url, value: request.url.split("/").last
           %li
-            = form.text_area :name
+            = form.text_area :name, placeholder: "Name"
           %li
-            = form.text_area :content  
+            = form.text_area :content, placeholder: "Comment"
           %li  
             = form.submit "Post Comment"
     .footer

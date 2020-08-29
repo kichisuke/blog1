@@ -27,26 +27,27 @@
     %li
       =link_to 'SignOut', "/users/sign_out", method: :delete if user_signed_in?
   %ul.mobile_header_content
-    %label{for: "chk_box", id: 'menu_icon'}
-      %span
-    %input{type: "checkbox", id:"chk_box"}
-    .mobile_header_menu
-      %ul.mobile_header_menu_wrapper
-        %li.mobile_header_menu_wrapper_all
-          = link_to 'All', '/blog'
-        %li.mobile_header_menu_wrapper_coffee
-          = link_to 'Coffee','/category/coffee' 
-        %li.mobile_header_menu_wrapper_food
-          = link_to 'Food','/category/food' 
-        %li.mobile_header_menu_wrapper_city
-          %a
-            City
-            %ul
-              - @pref.each do |p|
-                %li
-                  %a{href: "/city/" + p}
-                    =p
-        %li.mobile_header_menu_wrapper_contact
-          %a{href: "#"}
-            contact
+    .l-drawer
+      %input{class: "l-drawer__checkbox", id:"chk_box", type: "checkbox"}
+      %label{class: "l-drawer__icon", for: "chk_box", id: 'menu_icon'}
+        %span{class: "l-drawer__icon-parts"}
+      .mobile_header_menu
+        %ul.mobile_header_menu_wrapper
+          %li.mobile_header_menu_wrapper_all
+            = link_to 'All', '/blog'
+          %li.mobile_header_menu_wrapper_coffee
+            = link_to 'Coffee','/category/coffee' 
+          %li.mobile_header_menu_wrapper_food
+            = link_to 'Food','/category/food' 
+          %li.mobile_header_menu_wrapper_city
+            %a
+              City
+              %ul
+                - @pref.each do |p|
+                  %li
+                    %a{href: "/city/" + p}
+                      =p
+          %li.mobile_header_menu_wrapper_contact
+            %a{href: "#"}
+              contact
             

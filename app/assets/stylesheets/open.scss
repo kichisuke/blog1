@@ -204,6 +204,7 @@
   }
   
   .comment_post_form{
+    width: 63%;
     }
     ul{
     }
@@ -285,7 +286,7 @@
   }
   
   .comment_post_form{
-    width: 82%;
+    width: 84%;
     &_title{
      width: 100%;
      font-size: 18px;
@@ -311,20 +312,3 @@
   }
 }
 
-@media (max-width:700px){
-  .content{
-    &_image{
-      margin-top: 20px;
-      img{
-        height: 300px;
-      }
-    }
-    &_body{
-      font-size: 16px;
-      img{
-        width: 70%;
-        height: 200px;
-      }
-    }
-  }
-}

@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action{@pref = Blog.where.not(pref_name: "").distinct.pluck(:pref_name)}
-  before_action{@category = Blog.where.not(genre: "").pluck(:genre)}
+  before_action{@category = Blog.where.not(genre: "", draft: "1").pluck(:genre)}
 
   def index
     @blog = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(5)
@@ -11,7 +11,7 @@ class BlogController < ApplicationController
 
   def blog
     @blogs = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(10)
-    @arr_category = Blog.where.not(genre: "").pluck(:genre)
+    @arr_category = Blog.where.not(genre: "", draft: "1").pluck(:genre)
   end
 
   def blog_post

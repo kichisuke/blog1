@@ -18,3 +18,16 @@ require("packs/floating")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+$(document).on('turbolinks:load',function() {
+  let winHeight = window.innerHeight;
+  let footer = document.getElementById('footer_id').getBoundingClientRect();
+  let footerHeight = footer.bottom + window.pageYOffset;
+  console.log(winHeight);
+  console.log(footerHeight);
+  if(winHeight > footerHeight){
+    document.getElementById('footer_wrapper').style.position = "absolute";
+  }else{
+  }
+});

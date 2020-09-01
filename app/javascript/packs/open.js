@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   var flagTxt = document.getElementById("content_footer_like_flag").innerHTML.replace(/\r?\n/g, '')
   var likeBtn = document.getElementById("content_footer_like_button")
   var id = location.href.split("/").slice(-1)[0]

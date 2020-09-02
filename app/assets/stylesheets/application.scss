@@ -85,6 +85,32 @@
   color:blue;
 }
 
+.topics > li.food {
+  position: relative;
+}
+
+li.food ul.topics_second {
+  position: absolute;
+  visibility: hidden;
+  background-color: #4ABDAC;
+  top: 23px;
+  left: 0px;
+  width: 180px;
+  li{
+    padding-top: 15px;
+    font-size: 15px;
+  }
+  a{
+   display: block;
+   width: 100px;
+  }
+}
+
+li.food:hover ul.topics_second {
+  visibility: visible;
+  opacity: 1;
+}
+
 .topics > li.city {
   position: relative;
 }

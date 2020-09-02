@@ -9,7 +9,13 @@
     %li.coffee
       = link_to 'Coffee','/category/coffee' 
     %li.food
-      = link_to 'Food','/category/food' 
+      %a
+        Food
+        %ul.topics_second    
+          - @food.each do |f|
+            %li
+              %a{href: "/food/" + f}
+                =f
     %li.city
       %a
         City

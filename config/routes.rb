@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'blog/:id', to: 'blog#open'
   get 'category/:genre', to: 'blog#genre_open'
   get 'city/:city_name', to: 'blog#city_open'
+  get 'food/:food_name', to: 'blog#food_open'
   get '/draft_open', to: 'blog#draft_open'
   get 'blog/:id/draft', to: 'blog#draft'
   delete 'blog/:id/destroy', to: 'blog#destroy'

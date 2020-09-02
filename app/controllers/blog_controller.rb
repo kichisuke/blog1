@@ -1,6 +1,7 @@
 class BlogController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action{@pref = Blog.where.not(pref_name: "").distinct.pluck(:pref_name)}
+  before_action{@food = Blog.where.not(food_name: "", draft: "1").distinct.pluck(:food_name)}
+  before_action{@pref = Blog.where.not(pref_name: "", draft: "1").distinct.pluck(:pref_name)}
   before_action{@category = Blog.where.not(genre: "", draft: "1").pluck(:genre)}
 
   def index
@@ -84,12 +85,9 @@ class BlogController < ApplicationController
     @flag = ""
     if @alreadylike
       @flag = "already"
-      # redirect_back(fallback_location: root_path)
-      # flash[:notice] = "You alredy liked it, thank you!"
     else
       @flag = "not"
       @like = Like.create(blog_id: params[:blog_id], ip: request.remote_ip)
-      # redirect_back(fallback_location: root_path)
     end
   end
 
@@ -100,6 +98,11 @@ class BlogController < ApplicationController
 
   def city_open
     @blogs = Blog.where(pref_name: params[:city_name]).page(params[:page]).per(10)
+    @arr_category = Blog.where.not(genre: nil).pluck(:genre)
+  end
+
+  def food_open
+    @blogs = Blog.where(food_name: params[:food_name]).page(params[:page]).per(10)
     @arr_category = Blog.where.not(genre: nil).pluck(:genre)
   end
 
@@ -115,7 +118,7 @@ class BlogController < ApplicationController
 
   private
   def create_params
-    @image.blank? ? params.permit(:title, :genre, :city_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name, :content).merge(:media => @image['secure_url'], draft: "1") 
+    @image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1") 
   end
 
   def update_create_params
@@ -123,7 +126,7 @@ class BlogController < ApplicationController
     params[:genre] = params[:blog][:genre]
     params[:city_name] = params[:blog][:city_name]
     params[:content] = params[:blog][:content]
-    @image.blank? ? params.permit(:title, :genre, :city_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name, :content).merge(:media => @image['secure_url'], draft: "1")
+    @image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1")
   end
 
   def post_create_params

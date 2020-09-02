@@ -10,14 +10,12 @@
       .blog_post_form_area 
         = form_with model: @blog do |form|
           .blog_post_form_area_title
-            = form.label :title
-            = form.text_area :title
-            = form.label :genre
-            = form.text_area :genre
-            = form.label :city
-            = form.text_area :city_name
+            = form.text_area :title,placeholder: "Name"
+            = form.text_area :genre,placeholder: "Genre"
+            = form.text_area :city_name,placeholder: "City"
+            = form.text_area :food_name,placeholder: "Food"
             = form.file_field :media
-            = form.rich_text_area :content
+            = form.rich_text_area :content,placeholder: "Content"
             = form.submit "Make draft"
     .footer
       = render partial: 'layouts/footer'    

@@ -39,6 +39,9 @@
                   = c.created_at.strftime("%B %d, %Y" +" at " + "%H" + ":" + "%M")
                 %p.comment_show_form_content
                   = safe_join(c.content.split("\n"),tag(:br))
+                - if user_signed_in?  
+                  .comment_show_form_delete
+                    = link_to 'Delete', '/blog/' + params[:id] + "/" + c.id.to_s + '/comment', method: :delete
       - if user_signed_in?
         .content_edit
           .content_edit_edit
@@ -49,8 +52,8 @@
       %p.comment_post_form_title
         Add a Comment
       %ul
-        = form_with url:'/blog/:id/comment', method:'post' do |form|
-          = form.hidden_field :url, value: request.url.split("/").last
+        = form_with url:'/blog/' + params[:id] + '/comment', method:'post' do |form|
+          = form.hidden_field :url, value: params[:id]
           %li
             = form.text_area :name, placeholder: "Name"
           %li

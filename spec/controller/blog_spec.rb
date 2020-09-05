@@ -61,6 +61,19 @@ RSpec.describe BlogController, type: :controller do
      end
   end
 
+  describe 'DELETE #comment_delete' do
+  before do 
+    @comment = Comment.create(
+      name: 'hoge',
+      content: 'hoge'
+      )
+   end
+
+   it 'can destroy data' do
+     @comment.destroy
+   end
+end
+
   describe 'GET #draft' do
     it 'has a 200 status code' do
       expect(response).to have_http_status(:ok)

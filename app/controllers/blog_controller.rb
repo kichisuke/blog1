@@ -23,7 +23,15 @@ class BlogController < ApplicationController
 
   def comment_post
     @comment = Comment.create(comment_params)
-    name = '/blog/' + params[:url]
+    name = '/blog/' + params[:id]
+    redirect_to name
+  end
+
+  def comment_delete
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @url = request.url.split("/")[4]
+    name = '/blog/' + @url
     redirect_to name
   end
   

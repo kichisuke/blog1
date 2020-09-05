@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post 'blog/:id/draft/post', to: 'blog#blog_post'
   get 'blog/:id/draft/edit', to: 'blog#draft_edit'
   post 'blog/:id/comment', to: 'blog#comment_post'
+  delete 'blog/:id/:id/comment', to: 'blog#comment_delete'
 
   resources :blogs do
     resources :likes, only: [:create]

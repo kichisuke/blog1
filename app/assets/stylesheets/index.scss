@@ -74,6 +74,35 @@
       }
     }
 }
+.pagination{
+  margin: 30px 0 0 -25px;
+  display: flex;
+  a{
+    color: white;
+  }
+  span{
+    font-size: 20px;
+    border: 1px solid;
+    padding: 5px;
+    background-color: #4ABDAC;
+    color: white;
+  }
+  .page{
+    margin-left: 30px;
+  }
+  .first{
+    display: none;
+  }
+  .prev{
+    display: none;
+  }
+  .next{
+    display: none;
+  }
+  .last{
+    display: none;
+  }
+}
   
   &_footer_content{
     width: 100%;
@@ -201,10 +230,6 @@
 }
 }
 
-.pagination{
-  margin: 30px 0 0 0;
-}
-
 .footer{
   margin-top: 50px;
 }
@@ -261,6 +286,11 @@
       }
       &_comment{
         font-size: 10px;
+      }
+    }
+    .pagination{
+      span{
+        font-size: 18px;
       }
     }
   }
@@ -373,6 +403,9 @@
       &_comment{
        
       }
+    }
+    .pagination{
+      font-size: 15px;
     }
   }
 
@@ -529,7 +562,6 @@
       }
     }
     &_category{
-
       #category_title{
         font-size: 15px;
       }
@@ -554,6 +586,35 @@
 
   .main_blog{
     display: none;
+  }
+  .pagination{
+    margin-left: -20px;
+    display: flex;
+    a{
+      color: white;
+    }
+    span{
+      font-size: 20px;
+      border: 1px solid;
+      padding: 5px;
+      background-color: #4ABDAC;
+      color: white;
+    }
+    .page{
+      margin-left: 20px;
+    }
+    .first{
+      display: none;
+    }
+    .prev{
+      display: none;
+    }
+    .next{
+      display: none;
+    }
+    .last{
+      display: none;
+    }
   }
 
   .sub_info{

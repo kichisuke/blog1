@@ -25,7 +25,7 @@
                   = image_tag blog.media unless blog.media.blank?
               .main_blog_container_content
                 %p
-                  = safe_join(truncate(blog.content.to_plain_text, length:200).split("\n"),tag(:br))
+                  = simple_format(truncate(blog.content.to_plain_text, length:200))
                 .main_blog_container_content_button
                   %p
                     %a{href: 'blog/' + blog.id.to_s}

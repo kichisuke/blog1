@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: blog1_production
-  username: blog1
-  password: <%= ENV['BLOG1_DATABASE_PASSWORD'] %>
+  database: アプリ名
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

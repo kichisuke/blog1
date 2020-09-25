@@ -22,7 +22,7 @@
                     .main_blog_container_header_city_time_wrapper_time
                       = blog.created_at.strftime("%B %d, %Y")
                 .main_blog_container_header_image  
-                  = image_tag blog.media unless blog.media.blank?
+                  = image_tag blog.media.to_s unless blog.media.blank?
               .main_blog_container_content
                 %p
                   = simple_format(truncate(blog.content.to_plain_text, length:200))
@@ -46,7 +46,7 @@
               .main_blog_mobile_container_header
                 .main_blog_mobile_container_header_image  
                   %a{href: 'blog/' + blog.id.to_s}
-                    = image_tag blog.media unless blog.media.blank?
+                    = image_tag blog.media.to_s unless blog.media.blank?
                 .main_blog_mobile_container_header_title_city_time_wrapper
                   .main_blog_mobile_container_header_city_time_wrapper   
                     .main_blog_mobile_container_header_city_time_wrapper_time

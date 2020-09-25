@@ -15,7 +15,7 @@
       .content_city
         =@blogs.pref_name
       .content_image
-        =image_tag @blogs.media unless @blogs.media.blank?
+        =image_tag @blogs.media.to_s unless @blogs.media.blank?
       .content_body 
         =@blogs.content
       .content_footer

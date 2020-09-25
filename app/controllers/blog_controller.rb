@@ -69,8 +69,11 @@ class BlogController < ApplicationController
   #end
 
   def create
-    @image = Cloudinary::Uploader.upload(params[:media],:transformation=>[
-      {:width=>600, :height=>300, :crop=>"scale"}]) if !params[:media].nil?
+    @image = params[:media]
+    #File.binwrite("app/assets/images/#{@image.original_filename}", @image.read) unless params[:blog][:media].blank?
+    #@image = "#{@image.original_filename}" unless params[:blog][:media].blank?
+    #@image = Cloudinary::Uploader.upload(params[:media],:transformation=>[
+    #  {:width=>600, :height=>300, :crop=>"scale"}]) if !params[:media].nil?
     newData = Blog.create(create_params)
     id = newData.id
     name = '/blog/' + id.to_s + '/draft'
@@ -79,8 +82,11 @@ class BlogController < ApplicationController
 
   def update
     @blog = Blog.find(params[:blog][:id])
-    @image = Cloudinary::Uploader.upload(params[:blog][:media],:transformation=>[
-      {:width=>600, :height=>300, :crop=>"scale"}]) unless params[:blog][:media].blank?
+    @image = params[:blog][:media]
+    File.binwrite("app/assets/images/#{@image.original_filename}", @image.read) unless params[:blog][:media].blank?
+    @image = "#{@image.original_filename}" unless params[:blog][:media].blank?
+    #@image = Cloudinary::Uploader.upload(params[:blog][:media],:transformation=>[
+    #  {:width=>600, :height=>300, :crop=>"scale"}]) unless params[:blog][:media].blank?
     newData = @blog.update(update_create_params)
     name = '/blog/' + params[:blog][:id] + '/draft'
     redirect_to name
@@ -126,7 +132,8 @@ class BlogController < ApplicationController
 
   private
   def create_params
-    @image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1") 
+    #@image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1")
+    @image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image, draft: "1") 
   end
 
   def update_create_params
@@ -134,7 +141,8 @@ class BlogController < ApplicationController
     params[:genre] = params[:blog][:genre]
     params[:city_name] = params[:blog][:city_name]
     params[:content] = params[:blog][:content]
-    @image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1")
+    #@image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1")
+    @image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image, draft: "1")
   end
 
   def post_create_params

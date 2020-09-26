@@ -75,8 +75,11 @@ class BlogController < ApplicationController
     #@image = Cloudinary::Uploader.upload(params[:media],:transformation=>[
     #  {:width=>600, :height=>300, :crop=>"scale"}]) if !params[:media].nil?
     newData = Blog.create(create_params)
-    id = newData.id
-    name = '/blog/' + id.to_s + '/draft'
+    #id = newData.id
+    id = Blog.order(updated_at: :desc).limit(1).ids
+    id2 = id.to_s.delete("[")
+    id3 = id2.delete("]")
+    name = '/blog/' + id3 + '/draft'
     redirect_to name
   end
 

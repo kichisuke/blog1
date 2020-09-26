@@ -16,21 +16,28 @@
           font-size: 20px;
         }
         #genre{
-          width:10%;
+          width: 20%;
+          height: 30px;
+          display: block;
+          margin: 5px 0 0 9.7%;
+          font-size: 20px;
+        }
+        #pref_name{
+          width: 20%;
           height: 30px;
           display: block;
           margin: 5px 0 0 9.7%;
           font-size: 20px;
         }
         #city_name{
-          width:10%;
+          width: 20%;
           height: 30px;
           display: block;
           margin: 5px 0 0 9.7%;
           font-size: 20px;
         }
         #food_name{
-          width: 10%;
+          width: 20%;
           height: 30px;
           display: block;
           margin: 5px 0 0 9.7%;
@@ -72,9 +79,3 @@
     }
 }
 }
-
-.footer{
-  margin-top: -30px;
-}
-
-

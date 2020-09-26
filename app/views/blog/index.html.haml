@@ -92,7 +92,7 @@
                   %li.sub_info_popular_blog_list_title
                     = p_blog.title
                   %li.sub_info_popular_blog_list_image
-                    = image_tag p_blog.media unless p_blog.media.blank?
+                    = image_tag p_blog.media.to_s unless p_blog.media.blank?
           .sub_info_category
             %p#category_title
               All Category

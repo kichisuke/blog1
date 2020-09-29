@@ -32,7 +32,8 @@
                       Read More
               .main_blog_footer_content
                 .main_blog_footer_content_tweet
-                  = fa_icon "twitter 3x"
+                  = link_to "https://twitter.com/intent/tweet?text=#{blog.title}%0A#{request.url + 'blog/' + blog.id.to_s}%0A&hashtags=AnyTopicsJapan", class: 'btn btn-default', target: '_blank' do
+                    = fa_icon "twitter 3x"
                 .main_blog_footer_content_like
                   = blog.likes.count
                   likes
@@ -74,6 +75,9 @@
               = image_tag "utcXEvni_400x400.jpg"
             %p#name
               You-Ichi
+            %p#twitter
+              %a{href: 'https://twitter.com/Youu_Ichi'}
+                = fa_icon "twitter 2x"  
             %p#explanation1
               Freelance Developer
             %p#explanation2

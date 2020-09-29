@@ -114,8 +114,10 @@
       padding-top:15px;
     }
     &_tweet{
-      font-size: 15px;
-      color:skyblue;
+      a{
+        font-size: 15px;
+        color:skyblue;
+      }
     }
     &_comment{
       font-size: 15px;
@@ -152,8 +154,15 @@
       #name{
         margin-top: 10px;
       }
+      #twitter{
+        a{
+          margin-top: 10px;
+          font-size: 15px;
+          color:skyblue;
+        }
+      }
       #explanation1{
-        margin-top: 20px;
+        margin-top: 10px;
         color: #676767;
       }
       #explanation2{

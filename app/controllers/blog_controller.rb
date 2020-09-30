@@ -136,16 +136,18 @@ class BlogController < ApplicationController
   private
   def create_params
     #@image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1")
-    @image.blank? ? params.permit(:title, :genre,:pref_name, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre,:pref_name, :city_name,:food_name, :content).merge(:media => @image, draft: "1") 
+    @image.blank? ? params.permit(:title, :genre, :pref_name, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre,:pref_name, :city_name,:food_name, :content).merge(:media => @image, draft: "1") 
   end
 
   def update_create_params
     params[:title] = params[:blog][:title]
     params[:genre] = params[:blog][:genre]
+    params[:pref_name] = params[:blog][:pref_name]
     params[:city_name] = params[:blog][:city_name]
+    params[:food_name] = params[:blog][:food_name]
     params[:content] = params[:blog][:content]
     #@image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image['secure_url'], draft: "1")
-    @image.blank? ? params.permit(:title, :genre, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :city_name,:food_name, :content).merge(:media => @image, draft: "1")
+    @image.blank? ? params.permit(:title, :genre, :pref_name, :city_name,:food_name, :content).merge(draft: "1") : params.permit(:title, :genre, :pref_name, :city_name,:food_name, :content).merge(:media => @image, draft: "1")
   end
 
   def post_create_params

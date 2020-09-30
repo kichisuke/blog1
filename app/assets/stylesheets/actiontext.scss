@@ -18,12 +18,28 @@
       max-width: 33%;
     }
 
-    &.attachment-gallery--2,
-    &.attachment-gallery--4 {
+    &.attachment-gallery--2{
+      display: flex;
       > action-text-attachment,
       > .attachment {
-        flex-basis: 50%;
-        max-width: 50%;
+        padding: 0 0;
+        max-width: 55%;
+        img{
+          width: 95%;
+          height: 230px;
+        }
+      }
+    }
+    &.attachment-gallery--3{
+      display: flex;
+      > action-text-attachment,
+      > .attachment {
+        padding: 0 0;
+        max-width: 45%;
+        img{
+          width: 95%;
+          height: 200px;
+        }
       }
     }
   }

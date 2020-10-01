@@ -10,16 +10,16 @@ class MediaUploader < CarrierWave::Uploader::Base
 
   #process convert: 'jpg'
   process resize_to_limit: [600, 600]
-  process optimize: [quality: 50]
+  #process optimize: [quality: 50]
 
-  process :fix_rotate
-  def fix_rotate
-    manipulate! do |img|
-      img = img.auto_orient
-      img = yield(img) if block_given?
-      img
-    end
-  end
+  #process :fix_rotate
+  #def fix_rotate
+  #  manipulate! do |img|
+  #    img = img.auto_orient
+  #    img = yield(img) if block_given?
+  #    img
+  #  end
+  #end
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production? || Rails.env.staging?

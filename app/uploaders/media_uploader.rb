@@ -1,7 +1,25 @@
 class MediaUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
+  include Piet::CarrierWaveExtension
   # include CarrierWave::MiniMagick
+
+  #version :icon do
+  #  process resize_to_limit: [150, 150]
+  #end
+
+  #process convert: 'jpg'
+  process resize_to_limit: [600, 600]
+  process optimize: [quality: 50]
+
+  process :fix_rotate
+  def fix_rotate
+    manipulate! do |img|
+      img = img.auto_orient
+      img = yield(img) if block_given?
+      img
+    end
+  end
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production? || Rails.env.staging?

@@ -10,7 +10,7 @@ class MediaUploader < CarrierWave::Uploader::Base
 
   #process convert: 'jpg'
   process resize_to_limit: [600, 600]
-  #process optimize: [quality: 50]
+  process optimize: [quality: 50]
 
   #process :fix_rotate
   #def fix_rotate

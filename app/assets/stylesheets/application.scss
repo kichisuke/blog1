@@ -251,7 +251,7 @@ li.city:hover ul.topics_second {
     background-color:white;
     position: fixed;
     display: block;
-    top: -400px;
+    top: -1000px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     -webkit-transition: all .7s ;
@@ -377,6 +377,9 @@ li.city ul.topics_second {
 }
 
 @media (max-width:800px){
+  html{
+    background-color: white;
+  }
   .header{
     .header_menu{
       .main_title{
@@ -415,7 +418,7 @@ li.city ul.topics_second {
     &_self_introduction{
       width: 100%;
       padding-bottom: 30px;
-      background-color: white;
+      background-color: #D3D3D3;
       height: auto;
       text-align: center;
       border: solid 1px;

@@ -9,6 +9,8 @@
     .header
       = render partial: 'layouts/header'
     .content
+      .content_mobile_image
+        =image_tag @blogs.media.to_s unless @blogs.media.blank?
       .content_title
         =@blogs.title
       .content_date

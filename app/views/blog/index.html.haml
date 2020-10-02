@@ -46,7 +46,7 @@
           - @blog.each do |blog|
             .main_blog_mobile_container
               .main_blog_mobile_container_header
-                .main_blog_mobile_container_header_image{id: 'mobile_header_img'}
+                .main_blog_mobile_container_header_image
                   %a{href: 'blog/' + blog.id.to_s}
                     = image_tag blog.media.to_s unless blog.media.blank?
                 .main_blog_mobile_container_header_title_city_time_wrapper

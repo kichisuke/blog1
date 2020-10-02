@@ -15,7 +15,7 @@
         =@blogs.created_at.strftime("%B %d, %Y")
       .content_city
         =@blogs.pref_name
-      .content_image{id: 'header_img', value: @blogs.status}
+      .content_image{id: 'header_img'}
         =image_tag @blogs.media.to_s unless @blogs.media.blank?
       .content_body 
         =@blogs.content

@@ -2,6 +2,7 @@
 %html
   %head
     = stylesheet_link_tag "draft"
+    = javascript_pack_tag 'draft', 'data-turbolinks-track': 'reload'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
     .header
@@ -11,16 +12,20 @@
         =@blogs.title
       .content_date
         =@blogs.created_at.strftime("%B %d, %Y")
-      .content_image
+      .content_image#blog_img
         =image_tag @blogs.media.to_s unless @blogs.media.blank?
       .content_body 
         =@blogs.content
       .button_wrapper
         .button_wrapper_draft_post
           = form_with url: 'draft/post',local:true do |form|
+            = form.hidden_field :status, value: '0'
             = form.submit "Post"
         .button_wrapper_draft_edit
           = form_with url: 'draft/post',local:true do |form|
-            = form.submit "Re-Edit"    
+            = form.submit "Re-Edit"
+      //%button#btnRotate
+        image_rotate
     .footer#footer_wrapper
       = render partial: 'layouts/footer'
+  

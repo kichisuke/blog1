@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_123600) do
+ActiveRecord::Schema.define(version: 2020_10_02_113721) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -46,22 +46,22 @@ ActiveRecord::Schema.define(version: 2020_08_27_123600) do
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", size: :long
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.text "media"
     t.text "genre"
     t.boolean "draft"
     t.string "pref_name"
     t.string "food_name"
     t.string "city_name"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "blog_id"
+    t.text "name"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
     t.index ["blog_id"], name: "index_comments_on_blog_id"
   end
 
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_123600) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "username"
     t.string "email", default: ""
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -101,7 +102,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_123600) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username", default: "", null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

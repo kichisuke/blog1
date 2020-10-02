@@ -3,6 +3,7 @@
   %head
     = stylesheet_link_tag "open"
     = javascript_pack_tag 'open', 'data-turbolinks-track': 'reload'
+    //= javascript_pack_tag 'rotate', 'data-turbolinks-track': 'reload'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
     .header
@@ -14,7 +15,7 @@
         =@blogs.created_at.strftime("%B %d, %Y")
       .content_city
         =@blogs.pref_name
-      .content_image
+      .content_image{id: 'header_img', value: @blogs.status}
         =image_tag @blogs.media.to_s unless @blogs.media.blank?
       .content_body 
         =@blogs.content

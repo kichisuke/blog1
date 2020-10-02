@@ -2,6 +2,7 @@
 %html
   %head
     = stylesheet_link_tag "index"
+    //= javascript_pack_tag 'rotate', 'data-turbolinks-track': 'reload'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %title AnyTopicsJapan
   %body
@@ -21,7 +22,7 @@
                       = blog.pref_name
                     .main_blog_container_header_city_time_wrapper_time
                       = blog.created_at.strftime("%B %d, %Y")
-                .main_blog_container_header_image  
+                .main_blog_container_header_image{id: 'header_img', value: blog.status}
                   = image_tag blog.media.to_s unless blog.media.blank?
               .main_blog_container_content
                 %p
@@ -45,7 +46,7 @@
           - @blog.each do |blog|
             .main_blog_mobile_container
               .main_blog_mobile_container_header
-                .main_blog_mobile_container_header_image  
+                .main_blog_mobile_container_header_image{id: 'mobile_header_img', value: blog.status}
                   %a{href: 'blog/' + blog.id.to_s}
                     = image_tag blog.media.to_s unless blog.media.blank?
                 .main_blog_mobile_container_header_title_city_time_wrapper
@@ -95,7 +96,7 @@
                 %ul.sub_info_popular_blog_list
                   %li.sub_info_popular_blog_list_title
                     = p_blog.title
-                  %li.sub_info_popular_blog_list_image
+                  %li.sub_info_popular_blog_list_image{id: 'sub_header_img', value: p_blog.status}
                     = image_tag p_blog.media.to_s unless p_blog.media.blank?
           .sub_info_category
             %p#category_title

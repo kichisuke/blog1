@@ -6,11 +6,15 @@
   %ul.topics
     %li.all
       = link_to 'All', '/blog'
-    %li.coffee
-      = link_to 'Coffee','/category/coffee' 
+    %li{class: @rankCategory[0]}
+      = link_to @rankCategory[0], '/category/' + @rankCategory[0]  unless @rankCategory[0].blank?
+    %li{class: @rankCategory[1]}
+      = link_to @rankCategory[1], '/category/' + @rankCategory[1]  unless @rankCategory[1].blank?
+    %li{class: @rankCategory[2]}
+      = link_to @rankCategory[2], '/category/' + @rankCategory[2]  unless @rankCategory[2].blank?
     %li.food
       %a
-        Food
+        food
         %ul.topics_second    
           - @food.each do |f|
             %li
@@ -18,15 +22,17 @@
                 =f
     %li.city
       %a
-        City
+        city
         %ul.topics_second
           - @pref.each do |p|
             %li
               %a{href: "/city/" + p}
                 =p
+    %li.shop
+      = link_to 'Shopping', '/shop'              
     %li.contact
       %a{href: "#"}
-        contact 
+        Contact 
   %ul.auth_menu
     %li
       =link_to 'Draft', "/draft_open", method: :get if user_signed_in?        
@@ -42,10 +48,10 @@
         %ul.mobile_header_menu_wrapper
           %li.mobile_header_menu_wrapper_all
             = link_to 'All', '/blog'
-          %li.mobile_header_menu_wrapper_coffee
-            = link_to 'Coffee','/category/coffee' 
-          %li.mobile_header_menu_wrapper_food
-            = link_to 'Food','/category/food' 
+          %li.mobile_header_menu_wrapper_first
+            = link_to @rankCategory[0], '/category/' + @rankCategory[0]  unless @rankCategory[0].blank?
+          %li.mobile_header_menu_wrapper_second
+            = link_to @rankCategory[1], '/category/' + @rankCategory[1]  unless @rankCategory[1].blank?
           %li.mobile_header_menu_wrapper_city
             %a
               City
@@ -54,7 +60,10 @@
                   %li
                     %a{href: "/city/" + p}
                       =p
+          %li.mobile_header_menu_wrapper_shop
+            %a{href: "/shop"}
+              Shopping              
           %li.mobile_header_menu_wrapper_contact
             %a{href: "#"}
-              contact
+              Contact
             

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'post_image', to: 'blog#post_image'
   post 'post_image', to: 'blog#post_create'
   get 'blog', to: 'blog#blog'
+  get 'shop', to: 'blog#shop'
 
   get 'blog/index'
   get 'blog/:id', to: 'blog#open'

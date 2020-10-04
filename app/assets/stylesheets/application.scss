@@ -58,8 +58,8 @@
           color: white;
         }
       }
-      .contact{
-        padding-left: 18%;
+      .shop{
+        padding-left: 5%;
       }
     }
     .auth_menu{
@@ -273,11 +273,11 @@ li.city:hover ul.topics_second {
         border-bottom: 1px solid;
         padding: 10px 0 10px 10%;
       }
-      &_coffee{
+      &_first{
         border-bottom: 1px solid;
         padding: 10px 0 10px 10%;
       }
-      &_food{
+      &_second{
         border-bottom: 1px solid;
         padding: 10px 0 10px 10%;
       }
@@ -291,10 +291,14 @@ li.city:hover ul.topics_second {
             }
           }
         }
-        &_contact{
-          border-bottom: 1px solid;
-          padding: 10px 0 10px 10%;
-        }
+      &_shop{
+        border-bottom: 1px solid;
+        padding: 10px 0 10px 10%;
+      }
+      &_contact{
+        border-bottom: 1px solid;
+        padding: 10px 0 10px 10%;
+      }
       }
      }
 }

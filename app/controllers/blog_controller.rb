@@ -3,6 +3,8 @@ class BlogController < ApplicationController
   before_action{@food = Blog.where.not(food_name: "", draft: "1").distinct.pluck(:food_name)}
   before_action{@pref = Blog.where.not(pref_name: "", draft: "1").distinct.pluck(:pref_name)}
   before_action{@category = Blog.where.not(genre: "", draft: "1").pluck(:genre)}
+  before_action{@rankCategory = @category.group_by{|e| e}.sort_by{|_,v|-v.size}.map(&:first)}
+  before_action{@rankCatrgory = @rankCategory.delete("food")}
 
   def index
     @blog = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(5)

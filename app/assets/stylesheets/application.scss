@@ -323,8 +323,11 @@ li.city:hover ul.topics_second {
           a{
           }
         }
+        .shop{
+          margin-left: 2%;
+        }
         .contact{
-          padding-left: 8%;
+          margin-left: 2%;
         }
       }
       .auth_menu{
@@ -351,12 +354,16 @@ li.city:hover ul.topics_second {
       }
       .topics{
         width: 60%;
-        padding-left: 0;
+        margin-left: -8%;
         li{
           a{
           }
         }
+        .shop{
+          margin-left: -2%;
+        }
         .contact{
+          margin-left: 3%;
         }
       }
       .auth_menu{
@@ -455,7 +462,7 @@ li.city ul.topics_second {
     }
   }
   .footer{
-    position: relative;
+    position: absolute;
     background-color: #4ABDAC;
     width: 100%;
     height: auto;

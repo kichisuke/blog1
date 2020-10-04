@@ -12,6 +12,12 @@ class BlogController < ApplicationController
     @posts = Post.all.order("created_at DESC").limit(3)
   end
 
+  def shop
+    agent = Mechanize.new
+    page = agent.get("https://www.ebay.com/usr/anytopicsjapan")
+    @elements = page.search('.item_image')
+  end
+
   def blog
     @blogs = Blog.where(draft: 0).order("created_at DESC").page(params[:page]).per(10)
     @arr_category = Blog.where.not(genre: "", draft: "1").pluck(:genre)

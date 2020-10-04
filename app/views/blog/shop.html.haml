@@ -1,11 +1,25 @@
 !!!
 %html
   %head
-    = stylesheet_link_tag "open"
+    = stylesheet_link_tag "shop"
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
     .header
       = render partial: 'layouts/header'
-    .footer
+    .shop_main_description
+      %p
+        Selected Japanese items by ebay!
+    .item_info
+      -@elements.each do |ele|
+        %ul.item_info_list
+          %li.item_info_list_image
+            = image_tag ele.at('span img').get_attribute('data-src')
+          %li.item_info_list_title
+            = ele.at('.item_title a').get_attribute('href').split('/')[4]
+          %li.item_info_list_price
+            = ele.at('.price.fl.bold').inner_text
+          %button.item_info_list_button
+            %a{href: ele.at('a').get_attribute('href')}
+              Check ebay page
+    .footer#footer_wrapper
       = render partial: 'layouts/footer'
-      

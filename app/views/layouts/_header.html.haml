@@ -28,11 +28,11 @@
             %li
               %a{href: "/city/" + p}
                 =p
-    %li.shop
-      = link_to 'Shopping', '/shop'              
-    %li.contact
-      %a{href: "#"}
-        Contact 
+    //%li.shop
+    //= link_to 'Shopping', '/shop'              
+    //%li.contact
+    //  %a{href: "#"}
+    //    Contact 
   %ul.auth_menu
     %li
       =link_to 'Draft', "/draft_open", method: :get if user_signed_in?        
@@ -60,10 +60,10 @@
                   %li
                     %a{href: "/city/" + p}
                       =p
-          %li.mobile_header_menu_wrapper_shop
-            %a{href: "/shop"}
-              Shopping              
-          %li.mobile_header_menu_wrapper_contact
-            %a{href: "#"}
-              Contact
+          //%li.mobile_header_menu_wrapper_shop
+          //%a{href: "/shop"}
+          //Shopping              
+          //%li.mobile_header_menu_wrapper_contact
+          //  %a{href: "#"}
+          //    Contact
             

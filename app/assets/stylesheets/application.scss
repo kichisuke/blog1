@@ -437,12 +437,6 @@ li.city ul.topics_second {
         font-size: 20px;
         margin: 10px 0 0 0;
       }
-      #tweet{
-        margin-bottom: 10px;
-        a{
-          color:skyblue;
-        }
-      }
       &_title{
         height: 30px;
         font-size: 20px;
@@ -456,7 +450,29 @@ li.city ul.topics_second {
           width: 100px;
           height: 100px;
           margin-top: 30px;
-          border-radius: 50px;
+        }
+      }
+      &_sns{
+        display: flex;
+        margin: 15px auto 0 44%;
+        #tweet{
+          font-size: 14px;
+          a{
+            color:skyblue;
+          }
+        }
+        #insta{
+          background-image:radial-gradient(at 20% 120%,orange, #f15a4d 25%, #f13f79 55%, #9933ff 100%);
+          border-radius:10px;
+          margin-left: 18px;
+          padding: 5px;
+          box-shadow:0px 2px 0px -1px #224;
+          text-align:center;
+          font-size: 10px;
+          height: 29px;
+          a{
+            color: #fff;	
+          }
         }
       }
     }

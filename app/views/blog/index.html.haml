@@ -71,33 +71,38 @@
           .sub_info_self_introduction
             .sub_info_self_introduction_title
               %p
-                Author
+                Contact
             .sub_info_self_introduction_image
-              = image_tag "utcXEvni_400x400.jpg"
+              = image_tag "logo.png"
             %p#name
-              You-Ichi
-            %p#twitter
-              %a{href: 'https://twitter.com/Youu_Ichi'}
-                = fa_icon "twitter 2x"  
-            %p#explanation1
-              Freelance Developer
-            %p#explanation2
-              &  
-            %p#explanation3
-              Sales Representative
-            %p#explanation4
-              &
-            %p#explanation5
-              Coffee Lover!  
+              AnyTopicsJapan
+            .sub_info_self_introduction_sns
+              %p#twitter
+                %a{href: 'https://twitter.com/AnyTopicsJapan'}
+                  = fa_icon "twitter 2x"
+              %p#instagram
+                %a{href: 'https://www.instagram.com/anytopicsjapan/'}
+                  = fa_icon "instagram 2x"        
+            //%p#explanation1
+            //  Freelance Developer
+            //%p#explanation2
+            //  &  
+            //%p#explanation3
+            //  Sales Representative
+            //%p#explanation4
+            //  &
+            //%p#explanation5
+            //  Coffee Lover!  
           .sub_info_popular_blog
             %p.sub_info_popular_blog_title
               Popular Article
               - @p_blog.each do |p_blog|
                 %ul.sub_info_popular_blog_list
-                  %li.sub_info_popular_blog_list_title
-                    = p_blog.title
-                  %li.sub_info_popular_blog_list_image{id: 'sub_header_img'}
-                    = image_tag p_blog.media.to_s unless p_blog.media.blank?
+                  %a{href: 'blog/' + p_blog.id.to_s}
+                    %li.sub_info_popular_blog_list_title
+                      = p_blog.title
+                    %li.sub_info_popular_blog_list_image{id: 'sub_header_img'}
+                      = image_tag p_blog.media.to_s unless p_blog.media.blank?
           .sub_info_category
             %p#category_title
               All Category

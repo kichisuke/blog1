@@ -157,7 +157,8 @@
       }
       &_sns{
         display: flex;
-        margin: 15px auto 0 30%;
+        justify-content: center;
+        margin: 15px auto 0 auto;
         #twitter{
           a{
             font-size: 20px;
@@ -350,7 +351,6 @@
           font-size: 13px;
         }
         &_sns{
-          margin-left: 22%;
           #twitter{
             a{
               font-size: 18px;
@@ -478,7 +478,6 @@
           display: none;
         }
         &_sns{
-          margin-left: 18%;
           #twitter{
             a{ 
             }

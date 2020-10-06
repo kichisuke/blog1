@@ -3,5 +3,5 @@
   %head
     = stylesheet_link_tag "blog_page"
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %title AnyTopicsJapan
-  = render partial: 'layouts/blog_page'
+    - set_meta_tags title: @blogs[0].pref_name
+    = render partial: 'layouts/blog_page'

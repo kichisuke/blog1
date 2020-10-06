@@ -4,6 +4,6 @@
     = javascript_pack_tag 'blog_page', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag "blog_page"
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %title AnyTopicsJapan
+    - set_meta_tags title: @blogs[0].genre unless @blogs[0].genre.blank?
   %body  
     = render partial: 'layouts/blog_page'

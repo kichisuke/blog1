@@ -453,8 +453,10 @@ li.city ul.topics_second {
         }
       }
       &_sns{
+        width: 100%;
+        justify-content: center;
         display: flex;
-        margin: 15px auto 0 39%;
+        margin: 15px auto 0 auto;
         #tweet{
           font-size: 14px;
           a{

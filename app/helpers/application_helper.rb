@@ -1,8 +1,7 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      site: 'AnyTopicsJapan',
-      title: 'Toppage',
+      title: 'AnyTopicsJapan',
       reverse: true,
       separator: '|',
       description: 'Need information from Japan? AnyTopicsJapan shares realtime info from Japan.',

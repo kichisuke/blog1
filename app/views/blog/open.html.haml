@@ -29,7 +29,7 @@
           #content_footer_like_button
             = fa_icon "heart-o 2x"
         .content_footer_twitter
-          = link_to "https://twitter.com/intent/tweet?text=#{@blogs.title}%0A#{request.url}%0A&hashtags=AnyTopicsJapan", class: 'btn btn-default', target: '_blank' do
+          = link_to "https://twitter.com/intent/tweet?via=AnyTopicsJapan%0A&text=#{@blogs.title}%0A#{request.url}", class: 'btn btn-default', target: '_blank' do
             = fa_icon "twitter 2x"
       - if @comment.count != 0
         .comment_show_form

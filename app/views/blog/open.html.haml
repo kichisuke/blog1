@@ -5,6 +5,7 @@
     = javascript_pack_tag 'open', 'data-turbolinks-track': 'reload'
     //= javascript_pack_tag 'rotate', 'data-turbolinks-track': 'reload'
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    = set_meta_tags title: @blogs.title , description: @blogs.content.to_s.gsub(/\r\n|\r|\n|\s|\t/, ""), og:{image: image_url(url_for(@blogs.media.to_s))}, twitter:{image: image_url(url_for(@blogs.media.to_s))}
   %body
     .header
       = render partial: 'layouts/header'

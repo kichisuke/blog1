@@ -1,6 +1,6 @@
 .header_main
 .header_menu
-  %ul.main_title
+  %h1.main_title
     %a{href: "/"}
       AnyTopicsJapan
   %ul.topics
@@ -28,8 +28,8 @@
             %li
               %a{href: "/city/" + p}
                 =p
-    //%li.shop
-    //= link_to 'Shopping', '/shop'              
+    %li.shop
+      = link_to 'Shopping', '/shop'              
     //%li.contact
     //  %a{href: "#"}
     //    Contact 
@@ -60,9 +60,9 @@
                   %li
                     %a{href: "/city/" + p}
                       =p
-          //%li.mobile_header_menu_wrapper_shop
-          //%a{href: "/shop"}
-          //Shopping              
+          %li.mobile_header_menu_wrapper_shop
+            %a{href: "/shop"}
+              Shopping              
           //%li.mobile_header_menu_wrapper_contact
           //  %a{href: "#"}
           //    Contact

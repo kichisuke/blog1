@@ -33,7 +33,7 @@
     display: flex;
     flex-wrap: wrap;
     z-index: 99999;
-    .main_title{
+    h1{
       width: 35%;
       padding-left: 10%;
       font-size: 35px;
@@ -353,14 +353,14 @@ li.city:hover ul.topics_second {
         }
       }
       .topics{
-        width: 60%;
-        margin-left: -8%;
+        width: 65%;
+        margin-left: -7%;
         li{
           a{
           }
         }
         .shop{
-          margin-left: -2%;
+          margin-left: -1%;
         }
         .contact{
           margin-left: 3%;

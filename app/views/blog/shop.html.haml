@@ -3,24 +3,31 @@
   %head
     = stylesheet_link_tag "shop"
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    - set_meta_tags title: 'Shop'
+    - set_meta_tags title: 'Shopping'
   %body
     .header
       = render partial: 'layouts/header'
     .shop_main_description
       %p
         Selected Japanese items by ebay!
+      %strong
+        Sorry, now we can ship products only for U.K. because of virus problem.
     .item_info
       -@elements.each do |ele|
         %ul.item_info_list
           %li.item_info_list_image
-            = image_tag ele.at('span img').get_attribute('data-src')
+            //= image_tag ele.at('span img').get_attribute('data-src')
+            = image_tag ele.at('img').get_attribute('src')
           %li.item_info_list_title
-            = ele.at('.item_title a').get_attribute('href').split('/')[4]
+            //= ele.at('.item_title a').get_attribute('href').split('/')[4]
+            = ele.at('a').get_attribute('href').split('/')[4]
           %li.item_info_list_price
-            = ele.at('.price.fl.bold').inner_text
+            //= ele.at('.price.fl.bold').inner_text
+            = ele.at('.bold').inner_text
           %button.item_info_list_button
+            //%a{href: ele.at('a').get_attribute('href')}
+            //  Check ebay page
             %a{href: ele.at('a').get_attribute('href')}
-              Check ebay page
+              Check ebay page  
     .footer#footer_wrapper
       = render partial: 'layouts/footer'

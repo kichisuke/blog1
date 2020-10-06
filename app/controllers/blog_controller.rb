@@ -14,8 +14,10 @@ class BlogController < ApplicationController
 
   def shop
     agent = Mechanize.new
-    page = agent.get("https://www.ebay.com/usr/anytopicsjapan")
-    @elements = page.search('.item_image')
+    #page = agent.get("https://www.ebay.com/usr/anytopicsjapan")
+    #@elements = page.search('.item_image')
+    page = agent.get("https://www.ebay.co.uk/sch/anytopicsjapan/m.html?_nkw=&_armrs=1&_ipg=&_from=")
+    @elements = page.search('.sresult.lvresult.clearfix.li')
   end
 
   def blog

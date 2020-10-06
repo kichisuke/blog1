@@ -33,7 +33,7 @@
                       Read More
               .main_blog_footer_content
                 .main_blog_footer_content_tweet
-                  = link_to "https://twitter.com/intent/tweet?text=#{blog.title}%0A#{request.url + 'blog/' + blog.id.to_s}%0A&hashtags=AnyTopicsJapan", class: 'btn btn-default', target: '_blank' do
+                  = link_to "https://twitter.com/intent/tweet?via=AnyTopicsJapan%0A&text=#{blog.title}%0A#{request.url}" + "blog/" + blog.id.to_s, class: 'btn btn-default', target: '_blank' do
                     = fa_icon "twitter 3x"
                 .main_blog_footer_content_like
                   = blog.likes.count

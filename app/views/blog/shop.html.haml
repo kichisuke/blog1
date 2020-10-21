@@ -17,7 +17,10 @@
         %ul.item_info_list
           %li.item_info_list_image
             //= image_tag ele.at('span img').get_attribute('data-src')
-            = image_tag ele.at('img').get_attribute('src')
+            - if ele.at('img').get_attribute('src').exclude?('sta') then eleImg = ele.at('img').get_attribute('src')
+              = image_tag eleImg
+            - else eleImg = ele.at('img').get_attribute('imgurl')
+              = image_tag eleImg
           %li.item_info_list_title
             //= ele.at('.item_title a').get_attribute('href').split('/')[4]
             = truncate(ele.at('a').get_attribute('href').split('/')[4], length:45)
